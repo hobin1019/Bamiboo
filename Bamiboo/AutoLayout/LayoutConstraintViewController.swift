@@ -9,7 +9,7 @@ import UIKit
 
 /*
  [Understanding Auto Layout]
- 1. Constraint Layout 으로 구현해보기
+ 2. Constraint Layout 으로 구현해보기
  
  외부요인 >> ex) 화면 회전 / slider 값에 따라 화면 중앙에 위치하도록
  내부요인 >> ex) slider 값에 따라 사이즈가 조정되도록
