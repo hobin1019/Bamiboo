@@ -9,8 +9,8 @@ import UIKit
 
 /*
  [Understanding Auto Layout]
- 외부요인 >> ex) 화면 회전에 따라 top에서 100만큼 떨어지도록 동작
- 내부요인 >> ex) Slider 값에 따라 사이즈가 조정됨
+ 외부요인 >> ex) 화면 회전 / slider 값에 따라 화면 중앙에 위치하도록
+ 내부요인 >> ex) slider 값에 따라 사이즈가 조정되도록
  
  Frame으로 구현해보기
  */
@@ -24,7 +24,7 @@ class LayoutFrameMaskViewController: UIViewController {
     var frameSize: CGSize? {
         didSet {
             if let frameSize = frameSize {
-                resizableView.frame.origin = CGPoint(x: (frameSize.width - resizableView.frame.size.width) / 2.0, y: 200)
+                resizableView.center = CGPoint(x: frameSize.width / 2.0, y: frameSize.height / 2.0)
                 sliderView.frame.origin = CGPoint(x: (frameSize.width - sliderView.frame.size.width) / 2.0, y: frameSize.height - 100)
             }
         }
@@ -34,7 +34,7 @@ class LayoutFrameMaskViewController: UIViewController {
         set {
             resizableView.frame.size = newValue
             if let frameSize = frameSize {
-                resizableView.frame.origin = CGPoint(x: (frameSize.width - newValue.width) / 2.0, y: 200)
+                resizableView.center = CGPoint(x: frameSize.width / 2.0, y: frameSize.height / 2.0)
             }
         }
     }
