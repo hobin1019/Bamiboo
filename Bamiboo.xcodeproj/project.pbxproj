@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B27E779132B6E409E1D89E6D /* Pods_Bamiboo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7AD6F40E20FF5737CB42E /* Pods_Bamiboo.framework */; };
+		BA02AB072578719F00740367 /* LayoutAutoresizingMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */; };
 		BAF8E90C2577299200172777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E90B2577299200172777 /* AppDelegate.swift */; };
 		BAF8E9102577299200172777 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E90F2577299200172777 /* MainViewController.swift */; };
 		BAF8E9152577299200172777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF8E9142577299200172777 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		21F7AD6F40E20FF5737CB42E /* Pods_Bamiboo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bamiboo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43E804DFAC3ACA448062BEEA /* Pods-BamibooTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamibooTests.release.xcconfig"; path = "Target Support Files/Pods-BamibooTests/Pods-BamibooTests.release.xcconfig"; sourceTree = "<group>"; };
 		50385E091EF5BC864EE4E03D /* Pods-Bamiboo-BamibooUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo-BamibooUITests.release.xcconfig"; path = "Target Support Files/Pods-Bamiboo-BamibooUITests/Pods-Bamiboo-BamibooUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAutoresizingMaskViewController.swift; sourceTree = "<group>"; };
 		BAF8E9082577299200172777 /* Bamiboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bamiboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8E90B2577299200172777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAF8E90F2577299200172777 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				BAF8E9592577922600172777 /* LayoutProgrammaticallyViewController.swift */,
+				BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */,
 			);
 			path = AutoLayout;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				BAF8E95A2577922600172777 /* LayoutProgrammaticallyViewController.swift in Sources */,
 				BAF8E9102577299200172777 /* MainViewController.swift in Sources */,
+				BA02AB072578719F00740367 /* LayoutAutoresizingMaskViewController.swift in Sources */,
 				BAF8E90C2577299200172777 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
