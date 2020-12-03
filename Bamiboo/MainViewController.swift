@@ -15,6 +15,7 @@ struct ViewControllerItem {
 let viewControllerList: [ViewControllerItem] = [
     ViewControllerItem(vc: LayoutFrameMaskViewController(), title: "Layout, Frame"),
     ViewControllerItem(vc: LayoutAutoresizingMaskViewController(), title: "Layout, Autoresizing Mask"),
+    ViewControllerItem(vc: LayoutConstraintViewController(), title: "Layout, Constraint"),
 ]
 
 class MainViewController: UIViewController {
