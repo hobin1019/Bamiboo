@@ -13,7 +13,7 @@
 		BAF8E9102577299200172777 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E90F2577299200172777 /* MainViewController.swift */; };
 		BAF8E9152577299200172777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF8E9142577299200172777 /* Assets.xcassets */; };
 		BAF8E9182577299200172777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF8E9162577299200172777 /* LaunchScreen.storyboard */; };
-		BAF8E95A2577922600172777 /* LayoutProgrammaticallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E9592577922600172777 /* LayoutProgrammaticallyViewController.swift */; };
+		BAF8E95A2577922600172777 /* LayoutFrameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E9592577922600172777 /* LayoutFrameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,7 @@
 		BAF8E9142577299200172777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAF8E9172577299200172777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAF8E9192577299200172777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BAF8E9592577922600172777 /* LayoutProgrammaticallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProgrammaticallyViewController.swift; sourceTree = "<group>"; };
+		BAF8E9592577922600172777 /* LayoutFrameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutFrameViewController.swift; sourceTree = "<group>"; };
 		BB3CB1E634E813E2AB1D1109 /* Pods-BamibooTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamibooTests.debug.xcconfig"; path = "Target Support Files/Pods-BamibooTests/Pods-BamibooTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6C871B659D5339DFBFCF6CE /* Pods-Bamiboo-BamibooUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo-BamibooUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bamiboo-BamibooUITests/Pods-Bamiboo-BamibooUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E68499C3F918D54C5115080D /* Pods-Bamiboo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo.release.xcconfig"; path = "Target Support Files/Pods-Bamiboo/Pods-Bamiboo.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		BAF8E958257791F000172777 /* AutoLayout */ = {
 			isa = PBXGroup;
 			children = (
-				BAF8E9592577922600172777 /* LayoutProgrammaticallyViewController.swift */,
+				BAF8E9592577922600172777 /* LayoutFrameViewController.swift */,
 				BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */,
 			);
 			path = AutoLayout;
@@ -222,7 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAF8E95A2577922600172777 /* LayoutProgrammaticallyViewController.swift in Sources */,
+				BAF8E95A2577922600172777 /* LayoutFrameViewController.swift in Sources */,
 				BAF8E9102577299200172777 /* MainViewController.swift in Sources */,
 				BA02AB072578719F00740367 /* LayoutAutoresizingMaskViewController.swift in Sources */,
 				BAF8E90C2577299200172777 /* AppDelegate.swift in Sources */,
