@@ -13,6 +13,11 @@ import UIKit
  
  외부요인 >> ex) 화면 회전 / slider 값에 따라 화면 중앙에 위치하도록
  내부요인 >> ex) slider 값에 따라 사이즈가 조정되도록
+ 
+ ----------------------------------------------------
+ 
+ !!) view / superview 각각의 사이즈 변화에 따라 계산된 값으로 frame 을 재설정해주어야한다!!
+     => frame 계산하는게 귀찮고 복잡할 수 있음, life cycle 및 기능동작에 맡게 언제 frame 을 재설정해주어야 하는지도 고려해야함 🤮
  */
 class LayoutFrameMaskViewController: UIViewController {
     final let MAX_VIEW_SIZE: CGFloat = 300

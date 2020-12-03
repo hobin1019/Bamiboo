@@ -13,6 +13,11 @@ import UIKit
  
  외부요인 >> ex) 화면 회전 / slider 값에 따라 화면 중앙에 위치하도록
  내부요인 >> ex) slider 값에 따라 사이즈가 조정되도록
+ 
+ ----------------------------------------------------
+ 
+ !!) superview / view의 사이즈변화에 layout 자체가 유기적으로 반응함
+     => frame-based layout 보다 적용하기 편리함 😁
  */
 class LayoutConstraintViewController: UIViewController {
     final let MAX_VIEW_SIZE: CGFloat = 300
