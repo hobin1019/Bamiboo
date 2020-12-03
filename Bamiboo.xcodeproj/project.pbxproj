@@ -111,8 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				BAF8E9592577922600172777 /* LayoutFrameViewController.swift */,
-				BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */,
 				BA02AB0A25788EE900740367 /* LayoutConstraintViewController.swift */,
+				BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */,
 			);
 			path = AutoLayout;
 			sourceTree = "<group>";
