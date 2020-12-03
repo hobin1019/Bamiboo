@@ -9,10 +9,10 @@ import UIKit
 
 /*
  [Understanding Auto Layout]
+ 1. Frame-Based Layout 으로 구현해보기
+ 
  외부요인 >> ex) 화면 회전 / slider 값에 따라 화면 중앙에 위치하도록
  내부요인 >> ex) slider 값에 따라 사이즈가 조정되도록
- 
- Frame으로 구현해보기
  */
 class LayoutFrameMaskViewController: UIViewController {
     final let MAX_VIEW_SIZE: CGFloat = 300
@@ -39,6 +39,8 @@ class LayoutFrameMaskViewController: UIViewController {
         }
     }
     
+    
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,6 +69,8 @@ class LayoutFrameMaskViewController: UIViewController {
         frameSize = size
     }
     
+    
+    // MARK: Action Handler
     @objc func sliderValueChanged(_ sender: UISlider) {
         let value = CGFloat(sender.value)
         resizableViewSize = CGSize(width: value, height: value)
