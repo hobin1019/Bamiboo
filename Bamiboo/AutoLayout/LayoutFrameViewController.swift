@@ -23,8 +23,19 @@ class LayoutFrameMaskViewController: UIViewController {
     final let MAX_VIEW_SIZE: CGFloat = 300
     
     // UIViews
-    var resizableView = UIView()
-    var sliderView = UISlider()
+    lazy var resizableView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .orange
+        return view
+    }()
+    lazy var sliderView: UISlider = {
+        let slider = UISlider()
+        slider.frame.size = CGSize(width: 200, height: 20)
+        slider.maximumValue = Float(MAX_VIEW_SIZE)
+        slider.value = Float(MAX_VIEW_SIZE)
+        slider.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
+        return slider
+    }()
     
     var frameSize: CGSize? {
         didSet {
@@ -52,14 +63,9 @@ class LayoutFrameMaskViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(resizableView)
-        resizableView.backgroundColor = .orange
-        resizableViewSize = CGSize(width: MAX_VIEW_SIZE, height: MAX_VIEW_SIZE)
-        
         view.addSubview(sliderView)
-        sliderView.frame.size = CGSize(width: 200, height: 20)
-        sliderView.maximumValue = Float(MAX_VIEW_SIZE)
-        sliderView.value = Float(MAX_VIEW_SIZE)
-        sliderView.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
+        
+        resizableViewSize = CGSize(width: MAX_VIEW_SIZE, height: MAX_VIEW_SIZE)
     }
     
     override func viewWillAppear(_ animated: Bool) {
