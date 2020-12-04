@@ -12,7 +12,7 @@ import UIKit
  3. Autoresizing Mask로 구현해보기
  (문서) https://developer.apple.com/documentation/uikit/uiview/1622559-autoresizingmask
  
- 외부요인 >> ex) 화면 회전 / slider 값에 따라 화면 중앙에 위치하도록
+ 외부요인 >> ex) 화면 회전에 따라 화면 중앙에 위치하도록
  내부요인 >> ex) slider 값에 따라 사이즈가 조정되도록...? >> 불가능!! superview 에 대해서면 상대적으로 조정이 가능하기 때문에
  
  ----------------------------------------------------
@@ -57,13 +57,14 @@ import UIKit
  (추측) interface 를 보면 margin 은 '|-|' 모양이고, width 와 height 는 '<->' 모양이다! 각각이 fixed, flexible을 의미하는게 아닐까?
  
  
- ?? 궁금한 점 ?? (😭 미해결)
+ ?? 궁금한 점 ?? (😃 해결)
  leftMargin, rightMargin 을 모두 fixed 로 설정하면, leftMargin 만 적용되고
  topMargin, bottomMargin 을 모두 fixed 로 설정하면, topMargin 만 적용되는 것 같다?
  (? 우선순위가 leftMargin > rightMargin 이고 topMargin > bottomMargin 인듯하다)
  autoresizing mask 를 이용해 view 를 superview 의 정가운데에 위치시키려면 어떻게 해야하는가??
  (flexibleLeftMargin, flexibleRightMargin, flexibleTopMargin, flexibleBottomMargin 을 될것 같은데 ㅎㅅㅎ 왜 안되지??)
  interface 에서도 left/right 둘중 하나만 먹음 (왜떄문에 ㅠㅜㅠㅜ)
+ =>> 초기 frame 위치를 .zero로 설정했기 떄문 (comment 01, 02 참고)
  
  */
 class LayoutAutoresizingMaskViewController: UIViewController {
@@ -85,7 +86,8 @@ class LayoutAutoresizingMaskViewController: UIViewController {
         view.addSubview(orangeView)
         orangeView.backgroundColor = .orange
         
-        orangeView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 300, height: 300))
+        orangeView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 300, height: 300)) // [comment 01]
+        orangeView.center = view.center // [comment 02]
         print(orangeView.autoresizingMask) // rawValue : 0 (0b000_000)
         orangeView.translatesAutoresizingMaskIntoConstraints = false
         orangeView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleBottomMargin] // <-- mask(C bit) 값을 OR 연산자로 처리
