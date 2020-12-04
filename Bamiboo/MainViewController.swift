@@ -17,6 +17,7 @@ let viewControllerList: [ViewControllerItem] = [
     ViewControllerItem(vc: LayoutAutoresizingMaskViewController(), title: "Layout, Autoresizing Mask"),
     ViewControllerItem(vc: LayoutConstraintViewController(), title: "Layout, Constraint"),
     ViewControllerItem(vc: AutoLayoutStackViewViewController(), title: "Layout, without Constraints (UIStackView)"),
+    ViewControllerItem(vc: iOSLayoutViewController(), title: "Layout, Top-Bottom Layout Guide & Safe Area"),
 ]
 
 class MainViewController: UIViewController {

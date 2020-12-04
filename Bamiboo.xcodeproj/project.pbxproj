@@ -11,6 +11,8 @@
 		BA02AB072578719F00740367 /* LayoutAutoresizingMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */; };
 		BA02AB0B25788EE900740367 /* LayoutConstraintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB0A25788EE900740367 /* LayoutConstraintViewController.swift */; };
 		BA02AB152578D39200740367 /* AutoLayoutStackViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB142578D39200740367 /* AutoLayoutStackViewViewController.swift */; };
+		BA02AB262579D4BF00740367 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA02AB252579D4BF00740367 /* TestView.xib */; };
+		BAE199B2257A330700F42030 /* iOSLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199B1257A330700F42030 /* iOSLayoutViewController.swift */; };
 		BAF8E90C2577299200172777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E90B2577299200172777 /* AppDelegate.swift */; };
 		BAF8E9102577299200172777 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E90F2577299200172777 /* MainViewController.swift */; };
 		BAF8E9152577299200172777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF8E9142577299200172777 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAutoresizingMaskViewController.swift; sourceTree = "<group>"; };
 		BA02AB0A25788EE900740367 /* LayoutConstraintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraintViewController.swift; sourceTree = "<group>"; };
 		BA02AB142578D39200740367 /* AutoLayoutStackViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutStackViewViewController.swift; sourceTree = "<group>"; };
+		BA02AB252579D4BF00740367 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		BAE199B1257A330700F42030 /* iOSLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSLayoutViewController.swift; sourceTree = "<group>"; };
 		BAF8E9082577299200172777 /* Bamiboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bamiboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8E90B2577299200172777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAF8E90F2577299200172777 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			children = (
 				BA02AB172578E1A200740367 /* Xibs */,
 				BAF8E90F2577299200172777 /* MainViewController.swift */,
+				BA02AB252579D4BF00740367 /* TestView.xib */,
 				BAF8E958257791F000172777 /* AutoLayout */,
 				BAF8E94B25772BC800172777 /* Supporting Files */,
 				BAF8E94C25772BE000172777 /* Resources */,
@@ -125,6 +130,7 @@
 				BA02AB0A25788EE900740367 /* LayoutConstraintViewController.swift */,
 				BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */,
 				BA02AB142578D39200740367 /* AutoLayoutStackViewViewController.swift */,
+				BAE199B1257A330700F42030 /* iOSLayoutViewController.swift */,
 			);
 			path = AutoLayout;
 			sourceTree = "<group>";
@@ -200,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA02AB262579D4BF00740367 /* TestView.xib in Resources */,
 				BAF8E9182577299200172777 /* LaunchScreen.storyboard in Resources */,
 				BAF8E9152577299200172777 /* Assets.xcassets in Resources */,
 			);
@@ -242,6 +249,7 @@
 				BAF8E9102577299200172777 /* MainViewController.swift in Sources */,
 				BA02AB072578719F00740367 /* LayoutAutoresizingMaskViewController.swift in Sources */,
 				BA02AB0B25788EE900740367 /* LayoutConstraintViewController.swift in Sources */,
+				BAE199B2257A330700F42030 /* iOSLayoutViewController.swift in Sources */,
 				BAF8E90C2577299200172777 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
