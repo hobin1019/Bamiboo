@@ -27,7 +27,7 @@ class iOSLayoutViewController: UIViewController {
          ?? 궁금한 점 ??
          개념은 Padding 에 더 가까운거 같은데, 왜 LayoutMargins 라는 이름을 쓰는가?
          */
-        // layoutMargins 는 UIEdgeInsets 이고, layoutMarginGuide 는 NSLayoutConstraint 다!!!
+        // layoutMargins 는 UIEdgeInsets 이고, layoutMarginGuide 는 UILayoutGuide 다!!!
         // layoutMarginsGuide 의 default margin 값은 각각 8 point!!
         view.layoutMargins = UIEdgeInsets(top: 30, left: 100, bottom: 0, right: 0) // TextView 구성할 때, padding 주려고 구현하기도 함!!
         orangeView.translatesAutoresizingMaskIntoConstraints = false
