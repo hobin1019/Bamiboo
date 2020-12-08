@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
         
+        // appearance 를 이용하면 전체 UI에 대해 공통 설정을 해줄 수 있다!!
+        /*
+        UIButton.appearance().tintColor = .red
+        UIView.appearance().backgroundColor = .green
+        */
         return true
     }
 
