@@ -31,6 +31,8 @@ class OrangeTitleView: UIView {
         set { self.backgroundColor = newValue }
     }
     
+    
+    // MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -39,20 +41,42 @@ class OrangeTitleView: UIView {
         super.init(coder: coder)
         commonInit()
     }
-    
     private func commonInit() {
         titleLabel = UILabel()
         self.addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "hi"
-        NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-        ])
+    }
+    
+    
+    // MARK: draw(_:)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
         
         print(self.bounds)
-        self.bounds.origin = CGPoint(x: 100, y: 50)
+//        self.bounds.origin = CGPoint(x: 100, y: 50)
         self.clipsToBounds = false // (default : false)
         print(self.bounds)
+        
+        
+        titleLabel.frame = self.bounds
+        titleLabel.textColor = .red
+        titleLabel.textAlignment = .center
+        
+        
+        let layer = CALayer()
+        layer.frame = self.bounds
+
+        layer.contents = [UIImage(named: "background_ponyo")?.cgImage]
+        self.layer.addSublayer(layer)
+        layer.setNeedsLayout()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touched in OrangeTitleView")
+    }
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        print(point)
+        return super.hitTest(point, with: event)
     }
 }
