@@ -7,7 +7,10 @@
 
 import UIKit
 
-@main
+/*
+ main 함수는 기본적으로 UIApplication 클래스의 인스턴스를 만들어서 GUI를 사용하기 위한 런루프를 돌려주는 작업을 수행
+ */
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
@@ -40,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Main.storyboard 를 이용해 자동으로 UIWindow 객체가 생성되는 경우에는 인스턴스에 자동으로 window 가 지정되기 때문에 생략할 수 있다
         self.window = window
         
+        print(UIScreen.main.bounds)
         
         
         
