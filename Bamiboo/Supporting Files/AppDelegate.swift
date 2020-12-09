@@ -10,7 +10,7 @@ import UIKit
 /*
  main 함수는 기본적으로 UIApplication 클래스의 인스턴스를 만들어서 GUI를 사용하기 위한 런루프를 돌려주는 작업을 수행
  */
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 

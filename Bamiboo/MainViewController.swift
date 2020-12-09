@@ -7,23 +7,29 @@
 
 import UIKit
 
-struct ViewControllerItem {
-    var vc: UIViewController
+struct CellItem {
+    var `class`: UIViewController.Type
     var title: String
 }
 
-let viewControllerList: [ViewControllerItem] = [
-    ViewControllerItem(vc: LayoutFrameMaskViewController(), title: "Layout, Frame"),
-    ViewControllerItem(vc: LayoutAutoresizingMaskViewController(), title: "Layout, Autoresizing Mask"),
-    ViewControllerItem(vc: LayoutConstraintViewController(), title: "Layout, Constraint"),
-    ViewControllerItem(vc: AutoLayoutStackViewViewController(), title: "Layout, without Constraints (UIStackView)"),
-    ViewControllerItem(vc: iOSLayoutViewController(), title: "Layout, Top-Bottom Layout Guide & Safe Area"),
-    ViewControllerItem(vc: TestViewController(), title: "Test UIKit"),
+let viewControllerList: [[CellItem]] = [
+    [
+        CellItem(class: SwipeViewController.self, title: "스와이핑 테스트"),
+        CellItem(class: AlarmViewController.self, title: "내소식 알람 화면"),
+    ], [
+        CellItem(class: LayoutFrameMaskViewController.self, title: "Layout, Frame"),
+        CellItem(class: LayoutAutoresizingMaskViewController.self, title: "Layout, Autoresizing Mask"),
+        CellItem(class: LayoutConstraintViewController.self, title: "Layout, Constraint"),
+        CellItem(class: AutoLayoutStackViewViewController.self, title: "Layout, without Constraints (UIStackView)"),
+        CellItem(class: iOSLayoutViewController.self, title: "Layout, Top-Bottom Layout Guide & Safe Area"),
+        CellItem(class: TestViewController.self, title: "Test UIKit"),
+        CellItem(class: AnimationViewController.self, title: "Animation"),
+    ]
 ]
 
 class MainViewController: UIViewController {
     lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero)
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MainVCCellId")
         tableView.dataSource = self
         tableView.delegate = self
@@ -53,13 +59,16 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return viewControllerList.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewControllerList[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainVCCellId", for: indexPath)
-        cell.textLabel?.text = viewControllerList[indexPath.row].title
+        cell.textLabel?.text = viewControllerList[indexPath.section][indexPath.row].title
         return cell
     }
 }
@@ -68,7 +77,7 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let destVC: UIViewController = viewControllerList[indexPath.row].vc
+        let destVC: UIViewController = viewControllerList[indexPath.section][indexPath.row].class.init()
         navigationController?.pushViewController(destVC, animated: true)
     }
 }

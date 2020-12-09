@@ -15,6 +15,15 @@
 		BAE199BC257DB88900F42030 /* OrangeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199BB257DB88900F42030 /* OrangeTitleView.swift */; };
 		BAE199C2257DCD5000F42030 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199C0257DCD5000F42030 /* TestViewController.swift */; };
 		BAE199C3257DCD5000F42030 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE199C1257DCD5000F42030 /* TestViewController.xib */; };
+		BAE199D6257DFDBB00F42030 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199D5257DFDBB00F42030 /* AnimationViewController.swift */; };
+		BAE199E0257F5F6200F42030 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199DF257F5F6200F42030 /* AlarmViewController.swift */; };
+		BAE199E425804C2900F42030 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199E325804C2900F42030 /* AlarmViewModel.swift */; };
+		BAE199E825804C9400F42030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199E725804C9400F42030 /* ViewController.swift */; };
+		BAE199F22580610D00F42030 /* AlarmMyNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199F12580610D00F42030 /* AlarmMyNewsCell.swift */; };
+		BAE199F8258062D000F42030 /* AlarmMyNewsCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199F7258062D000F42030 /* AlarmMyNewsCollectionLayout.swift */; };
+		BAE199FD2580637300F42030 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199FC2580637300F42030 /* TitleView.swift */; };
+		BAE19A012580A7D500F42030 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE19A002580A7D500F42030 /* SwipeViewController.swift */; };
+		BAE19A052580D25B00F42030 /* SwipeViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE19A042580D25B00F42030 /* SwipeViewControllerModel.swift */; };
 		BAF8E90C2577299200172777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E90B2577299200172777 /* AppDelegate.swift */; };
 		BAF8E9102577299200172777 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E90F2577299200172777 /* MainViewController.swift */; };
 		BAF8E9152577299200172777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF8E9142577299200172777 /* Assets.xcassets */; };
@@ -34,6 +43,15 @@
 		BAE199BB257DB88900F42030 /* OrangeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeTitleView.swift; sourceTree = "<group>"; };
 		BAE199C0257DCD5000F42030 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		BAE199C1257DCD5000F42030 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		BAE199D5257DFDBB00F42030 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		BAE199DF257F5F6200F42030 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		BAE199E325804C2900F42030 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
+		BAE199E725804C9400F42030 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BAE199F12580610D00F42030 /* AlarmMyNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMyNewsCell.swift; sourceTree = "<group>"; };
+		BAE199F7258062D000F42030 /* AlarmMyNewsCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMyNewsCollectionLayout.swift; sourceTree = "<group>"; };
+		BAE199FC2580637300F42030 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		BAE19A002580A7D500F42030 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
+		BAE19A042580D25B00F42030 /* SwipeViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewControllerModel.swift; sourceTree = "<group>"; };
 		BAF8E9082577299200172777 /* Bamiboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bamiboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8E90B2577299200172777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAF8E90F2577299200172777 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +106,44 @@
 			path = XibView;
 			sourceTree = "<group>";
 		};
+		BAE199D4257DFDAB00F42030 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				BAE199D5257DFDBB00F42030 /* AnimationViewController.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		BAE199DA257F595200F42030 /* AlarmTest */ = {
+			isa = PBXGroup;
+			children = (
+				BAE19A042580D25B00F42030 /* SwipeViewControllerModel.swift */,
+				BAE19A002580A7D500F42030 /* SwipeViewController.swift */,
+				BAE199E325804C2900F42030 /* AlarmViewModel.swift */,
+				BAE199DF257F5F6200F42030 /* AlarmViewController.swift */,
+				BAE199F0258060FF00F42030 /* Views */,
+			);
+			path = AlarmTest;
+			sourceTree = "<group>";
+		};
+		BAE199F0258060FF00F42030 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BAE199FC2580637300F42030 /* TitleView.swift */,
+				BAE199FB2580635A00F42030 /* AlarmMyNews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BAE199FB2580635A00F42030 /* AlarmMyNews */ = {
+			isa = PBXGroup;
+			children = (
+				BAE199F7258062D000F42030 /* AlarmMyNewsCollectionLayout.swift */,
+				BAE199F12580610D00F42030 /* AlarmMyNewsCell.swift */,
+			);
+			path = AlarmMyNews;
+			sourceTree = "<group>";
+		};
 		BAF8E8FF2577299200172777 = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +165,10 @@
 		BAF8E90A2577299200172777 /* Bamiboo */ = {
 			isa = PBXGroup;
 			children = (
+				BAE199E725804C9400F42030 /* ViewController.swift */,
 				BAF8E90F2577299200172777 /* MainViewController.swift */,
+				BAE199DA257F595200F42030 /* AlarmTest */,
+				BAE199D4257DFDAB00F42030 /* Animation */,
 				BAE199BA257DB85C00F42030 /* CustomView */,
 				BAF8E958257791F000172777 /* AutoLayout */,
 				BAF8E94B25772BC800172777 /* Supporting Files */,
@@ -261,9 +320,18 @@
 				BAE199BC257DB88900F42030 /* OrangeTitleView.swift in Sources */,
 				BA02AB152578D39200740367 /* AutoLayoutStackViewViewController.swift in Sources */,
 				BAF8E9102577299200172777 /* MainViewController.swift in Sources */,
+				BAE199F22580610D00F42030 /* AlarmMyNewsCell.swift in Sources */,
+				BAE199E825804C9400F42030 /* ViewController.swift in Sources */,
+				BAE199E425804C2900F42030 /* AlarmViewModel.swift in Sources */,
+				BAE199FD2580637300F42030 /* TitleView.swift in Sources */,
+				BAE199F8258062D000F42030 /* AlarmMyNewsCollectionLayout.swift in Sources */,
+				BAE19A052580D25B00F42030 /* SwipeViewControllerModel.swift in Sources */,
 				BA02AB072578719F00740367 /* LayoutAutoresizingMaskViewController.swift in Sources */,
 				BA02AB0B25788EE900740367 /* LayoutConstraintViewController.swift in Sources */,
 				BAE199B2257A330700F42030 /* iOSLayoutViewController.swift in Sources */,
+				BAE199D6257DFDBB00F42030 /* AnimationViewController.swift in Sources */,
+				BAE199E0257F5F6200F42030 /* AlarmViewController.swift in Sources */,
+				BAE19A012580A7D500F42030 /* SwipeViewController.swift in Sources */,
 				BAE199C2257DCD5000F42030 /* TestViewController.swift in Sources */,
 				BAF8E90C2577299200172777 /* AppDelegate.swift in Sources */,
 			);
