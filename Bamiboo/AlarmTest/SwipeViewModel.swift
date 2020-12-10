@@ -64,6 +64,10 @@ class SwipeViewControllerModel {
             nowPageState = nowPageState + 1
         }
     }
+    func setNowPageState(_ index: Int) {
+        if index < 0 || index >= allPageStates.count { return }
+        nowPageState = index
+    }
     
     
 }

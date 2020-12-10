@@ -26,8 +26,13 @@ class TitleView: UIView {
         return b
     }()
     var segmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl()
+        let sc = UISegmentedControl(items: [])
         sc.translatesAutoresizingMaskIntoConstraints = false
+        sc.selectedSegmentIndex = 0
+        sc.selectedSegmentTintColor = .red
+        sc.backgroundColor = .lightGray
+        
+        sc.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         return sc
     }()
     
@@ -58,11 +63,11 @@ class TitleView: UIView {
             closeButton.widthAnchor.constraint(equalToConstant: 35),
             closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor, multiplier: 1),
             //
-            segmentedControl.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            segmentedControl.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            segmentedControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            segmentedControl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
             segmentedControl.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            segmentedControl.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            segmentedControl.heightAnchor.constraint(equalToConstant: 50),
+            segmentedControl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
+            segmentedControl.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
     
@@ -77,4 +82,11 @@ class TitleView: UIView {
         self.addSubview(segmentedControl)
     }
     
+    
+    // MARK: Public Functions
+    func setTitles(titles: [String]) {
+        titles.indices.forEach {
+            segmentedControl.insertSegment(withTitle: titles[$0], at: $0, animated: false)
+        }
+    }
 }

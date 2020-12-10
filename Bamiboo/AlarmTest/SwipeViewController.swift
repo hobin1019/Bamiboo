@@ -41,6 +41,7 @@ class SwipeViewController: UIViewController {
         
         // titleView
         titleView = TitleView()
+        titleView.setTitles(titles: vm.getAllPageStates().map { $0.getTitle() })
         view.addSubview(titleView)
         NSLayoutConstraint.activate([
             // titleView
@@ -84,15 +85,6 @@ class SwipeViewController: UIViewController {
 //            vc.didMove(toParent: self)
             sv.addArrangedSubview(vc.view)
             contentViews.append(vc)
-            
-//            switch (state) {
-//            case .myNews:
-//                contentViews.view.backgroundColor = .black
-//            case .waitForFree:
-//                view.backgroundColor = .black
-//            case .notice:
-//                view.backgroundColor = .yellow
-//            }
         }
         
         // set Swipe Gesture
@@ -138,7 +130,7 @@ class SwipeViewController: UIViewController {
     }
     
     @objc private func segmentedControlValueChanged(_ segment: UISegmentedControl) {
-        
+        vm.setNowPageState(segment.selectedSegmentIndex)
     }
     
     @objc private func viewSwiped(_ gesture: UISwipeGestureRecognizer) {
@@ -162,6 +154,8 @@ extension SwipeViewController: SwipeViewControllerDelegate {
         
         scrollView.setContentOffset(CGPoint(x: offSetX, y: offSetY), animated: true)
         contentViews[pageNum].didMove(toParent: self)
+        
+        titleView.segmentedControl.selectedSegmentIndex = pageNum
     }
     
 }

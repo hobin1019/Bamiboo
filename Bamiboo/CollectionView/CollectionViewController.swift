@@ -59,26 +59,26 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
         cell.backgroundColor = .red
         
-//        cell.contentView.translatesAutoresizingMaskIntoConstraints = false
-//        cell.constraints.forEach { $0.isActive = false }
-//        NSLayoutConstraint.activate([
-//            cell.contentView.leadingAnchor.constraint(equalTo: cell.leadingAnchor),
-//            cell.contentView.trailingAnchor.constraint(equalTo: cell.trailingAnchor),
-//            cell.contentView.topAnchor.constraint(equalTo: cell.topAnchor),
-//            cell.contentView.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
-//        ])
-//
-//        let label = UILabel()
-//        label.numberOfLines = 0
-//        label.text = ["hi\nhihi", "hello", "l;askjdf;laksjdf;laskdjf", "hihihihihih\nllllasdkfjhslkdjhcxkmjvs"][indexPath.row % 4]
-//        cell.contentView.addSubview(label)
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            label.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor),
-//            label.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor),
-//            label.topAnchor.constraint(equalTo: cell.contentView.topAnchor),
-//            label.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor),
-//        ])
+        cell.contentView.translatesAutoresizingMaskIntoConstraints = false
+        cell.constraints.forEach { $0.isActive = false }
+        NSLayoutConstraint.activate([
+            cell.contentView.leadingAnchor.constraint(equalTo: cell.leadingAnchor),
+            cell.contentView.trailingAnchor.constraint(equalTo: cell.trailingAnchor),
+            cell.contentView.topAnchor.constraint(equalTo: cell.topAnchor),
+            cell.contentView.bottomAnchor.constraint(equalTo: cell.bottomAnchor),
+        ])
+
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.text = ["hi\nhihi", "hello", "l;askjdf;laksjdf;laskdjf", "hihihihihih\nllllasdkfjhslkdjhcxkmjvs"][indexPath.row % 4]
+        cell.contentView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor),
+            label.topAnchor.constraint(equalTo: cell.contentView.topAnchor),
+            label.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor),
+        ])
         
         return cell
     }
