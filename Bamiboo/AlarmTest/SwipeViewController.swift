@@ -47,7 +47,7 @@ class SwipeViewController: UIViewController {
             titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             titleView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            titleView.heightAnchor.constraint(equalToConstant: 100),
+            titleView.heightAnchor.constraint(equalToConstant: TitleView.TITLE_VIEW_HEIGHT),
         ])
         // ------ set Target
         titleView.closeButton.addTarget(self, action: #selector(closeBtnClicked), for: .touchUpInside)

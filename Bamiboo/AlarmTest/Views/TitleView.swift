@@ -8,6 +8,8 @@
 import UIKit
 
 class TitleView: UIView {
+    static let TITLE_VIEW_HEIGHT: CGFloat = 100
+    
     var titleLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
