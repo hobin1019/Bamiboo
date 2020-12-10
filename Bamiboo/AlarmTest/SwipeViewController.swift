@@ -13,6 +13,7 @@ class SwipeViewController: UIViewController {
     
     
     // MARK: Views
+    var titleView: TitleView!
     var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
@@ -30,14 +31,27 @@ class SwipeViewController: UIViewController {
         sv.spacing = 0
         return sv
     }()
-    var contentViews: [UIView] = []
+    var contentViews: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         vm.delegate = self
-        
         view.backgroundColor = .black
+        
+        // titleView
+        titleView = TitleView()
+        view.addSubview(titleView)
+        NSLayoutConstraint.activate([
+            // titleView
+            titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            titleView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            titleView.heightAnchor.constraint(equalToConstant: 100),
+        ])
+        // ------ set Target
+        titleView.closeButton.addTarget(self, action: #selector(closeBtnClicked), for: .touchUpInside)
+        titleView.segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
@@ -55,24 +69,30 @@ class SwipeViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 3)
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: CGFloat(vm.getAllPageStates().count))
         ])
         
         contentViews.removeAll() // 이건 그냥... 습관적으로
         vm.getAllPageStates().forEach { state in
-            let view = UIView()
-            view.translatesAutoresizingMaskIntoConstraints = false
-            stackView.addArrangedSubview(view)
-            contentViews.append(view)
+            let sv = UIStackView()
+            sv.translatesAutoresizingMaskIntoConstraints = false
+            sv.alignment = .fill
+            sv.distribution = .fill
+            stackView.addArrangedSubview(sv)
+            let vc = state.getViewControllerType().init()
+            self.addChild(vc)
+//            vc.didMove(toParent: self)
+            sv.addArrangedSubview(vc.view)
+            contentViews.append(vc)
             
-            switch (state) {
-            case .myNews:
-                view.backgroundColor = .red
-            case .waitForFree:
-                view.backgroundColor = .orange
-            case .notice:
-                view.backgroundColor = .yellow
-            }
+//            switch (state) {
+//            case .myNews:
+//                contentViews.view.backgroundColor = .black
+//            case .waitForFree:
+//                view.backgroundColor = .black
+//            case .notice:
+//                view.backgroundColor = .yellow
+//            }
         }
         
         // set Swipe Gesture
@@ -90,8 +110,17 @@ class SwipeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.isHidden = true
+        view.bringSubviewToFront(titleView)
+        
         // popViewController 를 통해 다시 보여졌을 때, API를 또 request 해야한다고 가정했을 때...
         movePage()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = false
     }
     
     
@@ -104,6 +133,14 @@ class SwipeViewController: UIViewController {
     
     
     // MARK: Event Handlers
+    @objc private func closeBtnClicked() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func segmentedControlValueChanged(_ segment: UISegmentedControl) {
+        
+    }
+    
     @objc private func viewSwiped(_ gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .left {
             vm.setNowPageState(.next)
@@ -120,17 +157,11 @@ extension SwipeViewController: SwipeViewControllerDelegate {
     
     func movePage() {
         let pageNum: Int = vm.getNowPageState()
-        scrollView.setContentOffset(CGPoint(x: scrollView.frame.width * CGFloat(vm.getNowPageState()), y: scrollView.contentOffset.y), animated: true)
+        let offSetX = scrollView.frame.width * CGFloat(pageNum)
+        let offSetY = scrollView.contentOffset.y
         
-        let pageState = vm.getAllPageStates()[pageNum]
-        switch (pageState) {
-        case .myNews:
-            print("request myNews API")
-        case .waitForFree:
-            print("request waitForFree API")
-        case .notice:
-            print("request notice API")
-        }
+        scrollView.setContentOffset(CGPoint(x: offSetX, y: offSetY), animated: true)
+        contentViews[pageNum].didMove(toParent: self)
     }
     
 }

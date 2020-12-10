@@ -68,8 +68,7 @@ class TitleView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         // test
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.red.cgColor
+        self.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
         
         self.addSubview(titleLabel)
         self.addSubview(closeButton)

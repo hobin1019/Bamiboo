@@ -5,7 +5,7 @@
 //  Created by Bamiboo on 2020/12/09.
 //
 
-import Foundation
+import UIKit
 
 
 // MARK: Enum
@@ -20,10 +20,25 @@ protocol SwipeViewControllerDelegate: class {
 
 
 // MARK: ALARM_PAGE_STATE
-enum ALARM_PAGE_STATE: String {
-    case myNews         = "내 소식"
-    case waitForFree    = "기다리면 무료"
-    case notice         = "공지사항"
+enum ALARM_PAGE_STATE: Int {
+    case myNews         = 0
+    case waitForFree    = 1
+    case notice         = 2
+    
+    func getTitle() -> String {
+        switch (self) {
+        case .myNews:       return "내 소식"
+        case .waitForFree:  return "기다리면 무료"
+        case .notice:       return "공지사항"
+        }
+    }
+    func getViewControllerType() -> UIViewController.Type {
+        switch (self) {
+        case .myNews:       return AlarmMyNewsViewController.self
+        case .waitForFree:  return AlarmWaitForFreeViewController.self
+        case .notice:       return AlarmNoticeViewController.self
+        }
+    }
 }
 
 
