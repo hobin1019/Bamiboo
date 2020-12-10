@@ -33,20 +33,6 @@ class AlarmMyNewsCell: UICollectionViewCell {
         return iv
     }()
     
-    func setData(data: AlarmMyNewsItem) {
-        titleLabel.text = data.getTitle()
-        timeLabel.text = data.getTime()
-        
-        if let url = data.getImageUrl() {
-            URLSession.shared.dataTask(with: url) {(data, response, error) in
-                guard let data = data else { return }
-                DispatchQueue.main.async {
-                    self.imageView.image = UIImage(data: data)
-                }
-            }.resume()
-        }
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -78,6 +64,21 @@ class AlarmMyNewsCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
         ])
+    }
+    
+    
+    func setData(data: AlarmMyNewsItem) {
+        titleLabel.text = data.getTitle()
+        timeLabel.text = data.getTime()
+        
+        if let url = data.getImageUrl() {
+            URLSession.shared.dataTask(with: url) {(data, response, error) in
+                guard let data = data else { return }
+                DispatchQueue.main.async {
+                    self.imageView.image = UIImage(data: data)
+                }
+            }.resume()
+        }
     }
     
 }
