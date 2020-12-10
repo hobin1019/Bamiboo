@@ -15,6 +15,7 @@ struct CellItem {
 let viewControllerList: [[CellItem]] = [
     [
         CellItem(class: SwipeViewController.self, title: "알람 페이지"),
+        CellItem(class: CollectionViewController.self, title: "콜렉션 뷰 테스트"),
     ], [
         CellItem(class: LayoutFrameMaskViewController.self, title: "Layout, Frame"),
         CellItem(class: LayoutAutoresizingMaskViewController.self, title: "Layout, Autoresizing Mask"),
