@@ -9,6 +9,7 @@ import UIKit
 
 
 class AlarmMyNewsCell: UICollectionViewCell {
+    
     private var titleLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +31,7 @@ class AlarmMyNewsCell: UICollectionViewCell {
     private var imageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFit
         return iv
     }()
     

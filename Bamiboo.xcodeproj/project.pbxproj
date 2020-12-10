@@ -23,7 +23,6 @@
 		BAE199D6257DFDBB00F42030 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199D5257DFDBB00F42030 /* AnimationViewController.swift */; };
 		BAE199E825804C9400F42030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199E725804C9400F42030 /* ViewController.swift */; };
 		BAE199F22580610D00F42030 /* AlarmMyNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199F12580610D00F42030 /* AlarmMyNewsCell.swift */; };
-		BAE199F8258062D000F42030 /* AlarmMyNewsCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199F7258062D000F42030 /* AlarmMyNewsCollectionLayout.swift */; };
 		BAE199FD2580637300F42030 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE199FC2580637300F42030 /* TitleView.swift */; };
 		BAE19A012580A7D500F42030 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE19A002580A7D500F42030 /* SwipeViewController.swift */; };
 		BAE19A052580D25B00F42030 /* SwipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE19A042580D25B00F42030 /* SwipeViewModel.swift */; };
@@ -53,7 +52,6 @@
 		BAE199D5257DFDBB00F42030 /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		BAE199E725804C9400F42030 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BAE199F12580610D00F42030 /* AlarmMyNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMyNewsCell.swift; sourceTree = "<group>"; };
-		BAE199F7258062D000F42030 /* AlarmMyNewsCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmMyNewsCollectionLayout.swift; sourceTree = "<group>"; };
 		BAE199FC2580637300F42030 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		BAE19A002580A7D500F42030 /* SwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewController.swift; sourceTree = "<group>"; };
 		BAE19A042580D25B00F42030 /* SwipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewModel.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 		BA48B0312581A6A2005DBE29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BAE199F7258062D000F42030 /* AlarmMyNewsCollectionLayout.swift */,
 				BAE199F12580610D00F42030 /* AlarmMyNewsCell.swift */,
 			);
 			path = Views;
@@ -354,7 +351,6 @@
 				BA48B0292581A59F005DBE29 /* AlarmMyNewsViewController.swift in Sources */,
 				BAE199E825804C9400F42030 /* ViewController.swift in Sources */,
 				BAE199FD2580637300F42030 /* TitleView.swift in Sources */,
-				BAE199F8258062D000F42030 /* AlarmMyNewsCollectionLayout.swift in Sources */,
 				BAE19A052580D25B00F42030 /* SwipeViewModel.swift in Sources */,
 				BA02AB072578719F00740367 /* LayoutAutoresizingMaskViewController.swift in Sources */,
 				BA02AB0B25788EE900740367 /* LayoutConstraintViewController.swift in Sources */,

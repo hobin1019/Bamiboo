@@ -13,15 +13,12 @@ class AlarmMyNewsViewController: UIViewController {
     
     // MARK: Views
     lazy var contentCollectionView: UICollectionView = {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(114))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        let layout = UICollectionViewCompositionalLayout(section: section)
+        let l = UICollectionViewFlowLayout()
+        l.scrollDirection = .vertical
+        l.headerReferenceSize = CGSize(width: view.bounds.width, height: TitleView.TITLE_VIEW_HEIGHT)
+        l.itemSize = CGSize(width: view.bounds.width, height: 100)
         
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: l)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(AlarmMyNewsCell.self, forCellWithReuseIdentifier: reusableIdentifier)
         cv.delegate = self
@@ -77,12 +74,9 @@ extension AlarmMyNewsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath) as? AlarmMyNewsCell else {
-            return UICollectionViewCell()
-        }
-        let data = vm.dataSource[indexPath.row]
-        cell.setData(data: data)
-        return cell;
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath) as! AlarmMyNewsCell
+        cell.setData(data: vm.dataSource[indexPath.row])
+        return cell
     }
     
 }
