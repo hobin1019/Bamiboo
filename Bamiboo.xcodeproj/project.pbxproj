@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B27E779132B6E409E1D89E6D /* Pods_Bamiboo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F7AD6F40E20FF5737CB42E /* Pods_Bamiboo.framework */; };
+		28AD7C50CCF96AA2516B9A4F /* Pods_Bamiboo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76C9744BF046A401A2FE0947 /* Pods_Bamiboo.framework */; };
+		38BF57D4258209D300862F8F /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF57D3258209D300862F8F /* CollectionViewController.swift */; };
 		BA02AB072578719F00740367 /* LayoutAutoresizingMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */; };
 		BA02AB0B25788EE900740367 /* LayoutConstraintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB0A25788EE900740367 /* LayoutConstraintViewController.swift */; };
 		BA02AB152578D39200740367 /* AutoLayoutStackViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB142578D39200740367 /* AutoLayoutStackViewViewController.swift */; };
@@ -34,10 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		159F2CD8AFEC352893A37E78 /* Pods_BamibooTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BamibooTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		21F7AD6F40E20FF5737CB42E /* Pods_Bamiboo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bamiboo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		43E804DFAC3ACA448062BEEA /* Pods-BamibooTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamibooTests.release.xcconfig"; path = "Target Support Files/Pods-BamibooTests/Pods-BamibooTests.release.xcconfig"; sourceTree = "<group>"; };
-		50385E091EF5BC864EE4E03D /* Pods-Bamiboo-BamibooUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo-BamibooUITests.release.xcconfig"; path = "Target Support Files/Pods-Bamiboo-BamibooUITests/Pods-Bamiboo-BamibooUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1B96D421DEFBE9EF52A3C2C7 /* Pods-Bamiboo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo.release.xcconfig"; path = "Target Support Files/Pods-Bamiboo/Pods-Bamiboo.release.xcconfig"; sourceTree = "<group>"; };
+		38BF57D3258209D300862F8F /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		76C9744BF046A401A2FE0947 /* Pods_Bamiboo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bamiboo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84932818F425EEAC37A05575 /* Pods-Bamiboo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo.debug.xcconfig"; path = "Target Support Files/Pods-Bamiboo/Pods-Bamiboo.debug.xcconfig"; sourceTree = "<group>"; };
 		BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAutoresizingMaskViewController.swift; sourceTree = "<group>"; };
 		BA02AB0A25788EE900740367 /* LayoutConstraintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraintViewController.swift; sourceTree = "<group>"; };
 		BA02AB142578D39200740367 /* AutoLayoutStackViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutStackViewViewController.swift; sourceTree = "<group>"; };
@@ -63,11 +64,6 @@
 		BAF8E9172577299200172777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAF8E9192577299200172777 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAF8E9592577922600172777 /* LayoutFrameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutFrameViewController.swift; sourceTree = "<group>"; };
-		BB3CB1E634E813E2AB1D1109 /* Pods-BamibooTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BamibooTests.debug.xcconfig"; path = "Target Support Files/Pods-BamibooTests/Pods-BamibooTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C6C871B659D5339DFBFCF6CE /* Pods-Bamiboo-BamibooUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo-BamibooUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bamiboo-BamibooUITests/Pods-Bamiboo-BamibooUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E68499C3F918D54C5115080D /* Pods-Bamiboo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo.release.xcconfig"; path = "Target Support Files/Pods-Bamiboo/Pods-Bamiboo.release.xcconfig"; sourceTree = "<group>"; };
-		EE3F553A79C22EF1E620C580 /* Pods-Bamiboo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo.debug.xcconfig"; path = "Target Support Files/Pods-Bamiboo/Pods-Bamiboo.debug.xcconfig"; sourceTree = "<group>"; };
-		FCAFE403F72406C13DE9C30B /* Pods_Bamiboo_BamibooUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bamiboo_BamibooUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,19 +71,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B27E779132B6E409E1D89E6D /* Pods_Bamiboo.framework in Frameworks */,
+				28AD7C50CCF96AA2516B9A4F /* Pods_Bamiboo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B67665A7D2CF6345BF8E1B81 /* Frameworks */ = {
+		38BF57D2258209A400862F8F /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				21F7AD6F40E20FF5737CB42E /* Pods_Bamiboo.framework */,
-				FCAFE403F72406C13DE9C30B /* Pods_Bamiboo_BamibooUITests.framework */,
-				159F2CD8AFEC352893A37E78 /* Pods_BamibooTests.framework */,
+				38BF57D3258209D300862F8F /* CollectionViewController.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		696B2D1452EBD9C335D751B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76C9744BF046A401A2FE0947 /* Pods_Bamiboo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -180,7 +182,7 @@
 				BAF8E90A2577299200172777 /* Bamiboo */,
 				BAF8E9092577299200172777 /* Products */,
 				F1D733D944C622895D2776B1 /* Pods */,
-				B67665A7D2CF6345BF8E1B81 /* Frameworks */,
+				696B2D1452EBD9C335D751B9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -198,6 +200,7 @@
 				BAE199E725804C9400F42030 /* ViewController.swift */,
 				BAF8E90F2577299200172777 /* MainViewController.swift */,
 				BAE199DA257F595200F42030 /* AlarmTest */,
+				38BF57D2258209A400862F8F /* CollectionView */,
 				BAE199D4257DFDAB00F42030 /* Animation */,
 				BAE199BA257DB85C00F42030 /* CustomView */,
 				BAF8E958257791F000172777 /* AutoLayout */,
@@ -240,12 +243,8 @@
 		F1D733D944C622895D2776B1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EE3F553A79C22EF1E620C580 /* Pods-Bamiboo.debug.xcconfig */,
-				E68499C3F918D54C5115080D /* Pods-Bamiboo.release.xcconfig */,
-				C6C871B659D5339DFBFCF6CE /* Pods-Bamiboo-BamibooUITests.debug.xcconfig */,
-				50385E091EF5BC864EE4E03D /* Pods-Bamiboo-BamibooUITests.release.xcconfig */,
-				BB3CB1E634E813E2AB1D1109 /* Pods-BamibooTests.debug.xcconfig */,
-				43E804DFAC3ACA448062BEEA /* Pods-BamibooTests.release.xcconfig */,
+				84932818F425EEAC37A05575 /* Pods-Bamiboo.debug.xcconfig */,
+				1B96D421DEFBE9EF52A3C2C7 /* Pods-Bamiboo.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -257,7 +256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BAF8E9322577299300172777 /* Build configuration list for PBXNativeTarget "Bamiboo" */;
 			buildPhases = (
-				73195E7DB4A0DB444FA0772C /* [CP] Check Pods Manifest.lock */,
+				16BF76E66B4BD9A2CD7B1BD0 /* [CP] Check Pods Manifest.lock */,
 				BAF8E9042577299200172777 /* Sources */,
 				BAF8E9052577299200172777 /* Frameworks */,
 				BAF8E9062577299200172777 /* Resources */,
@@ -317,7 +316,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		73195E7DB4A0DB444FA0772C /* [CP] Check Pods Manifest.lock */ = {
+		16BF76E66B4BD9A2CD7B1BD0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -364,6 +363,7 @@
 				BA48B03B2581AB74005DBE29 /* AlarmNoticeViewController.swift in Sources */,
 				BAE19A012580A7D500F42030 /* SwipeViewController.swift in Sources */,
 				BA48B02C2581A5EE005DBE29 /* AlarmMyNewsViewModel.swift in Sources */,
+				38BF57D4258209D300862F8F /* CollectionViewController.swift in Sources */,
 				BAE199C2257DCD5000F42030 /* TestViewController.swift in Sources */,
 				BAF8E90C2577299200172777 /* AppDelegate.swift in Sources */,
 			);
@@ -434,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -489,7 +489,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -501,11 +501,12 @@
 		};
 		BAF8E9332577299300172777 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE3F553A79C22EF1E620C580 /* Pods-Bamiboo.debug.xcconfig */;
+			baseConfigurationReference = 84932818F425EEAC37A05575 /* Pods-Bamiboo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z234RLVBT8;
 				INFOPLIST_FILE = "Bamiboo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,11 +521,12 @@
 		};
 		BAF8E9342577299300172777 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E68499C3F918D54C5115080D /* Pods-Bamiboo.release.xcconfig */;
+			baseConfigurationReference = 1B96D421DEFBE9EF52A3C2C7 /* Pods-Bamiboo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z234RLVBT8;
 				INFOPLIST_FILE = "Bamiboo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
