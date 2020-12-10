@@ -7,13 +7,4 @@ target 'Bamiboo' do
 
   # Pods for Bamiboo
 
-  target 'BamibooTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'BamibooUITests' do
-    # Pods for testing
-  end
-
 end
