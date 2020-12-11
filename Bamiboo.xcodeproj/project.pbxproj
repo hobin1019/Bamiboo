@@ -11,6 +11,8 @@
 		38BF57D4258209D300862F8F /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BF57D3258209D300862F8F /* CollectionViewController.swift */; };
 		38D06B4C2582F63000DAA5AF /* AlarmNoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D06B4B2582F63000DAA5AF /* AlarmNoticeViewModel.swift */; };
 		38D06B502582F8BC00DAA5AF /* AlarmNoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D06B4F2582F8BC00DAA5AF /* AlarmNoticeCell.swift */; };
+		38D06B5925835DDB00DAA5AF /* AlarmWaitForFreeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D06B5825835DDB00DAA5AF /* AlarmWaitForFreeViewModel.swift */; };
+		38D06B5E25835E1500DAA5AF /* AlarmWaitForFreeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D06B5D25835E1500DAA5AF /* AlarmWaitForFreeCell.swift */; };
 		BA02AB072578719F00740367 /* LayoutAutoresizingMaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */; };
 		BA02AB0B25788EE900740367 /* LayoutConstraintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB0A25788EE900740367 /* LayoutConstraintViewController.swift */; };
 		BA02AB152578D39200740367 /* AutoLayoutStackViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02AB142578D39200740367 /* AutoLayoutStackViewViewController.swift */; };
@@ -39,6 +41,8 @@
 		38BF57D3258209D300862F8F /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		38D06B4B2582F63000DAA5AF /* AlarmNoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNoticeViewModel.swift; sourceTree = "<group>"; };
 		38D06B4F2582F8BC00DAA5AF /* AlarmNoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmNoticeCell.swift; sourceTree = "<group>"; };
+		38D06B5825835DDB00DAA5AF /* AlarmWaitForFreeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmWaitForFreeViewModel.swift; sourceTree = "<group>"; };
+		38D06B5D25835E1500DAA5AF /* AlarmWaitForFreeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmWaitForFreeCell.swift; sourceTree = "<group>"; };
 		76C9744BF046A401A2FE0947 /* Pods_Bamiboo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bamiboo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84932818F425EEAC37A05575 /* Pods-Bamiboo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bamiboo.debug.xcconfig"; path = "Target Support Files/Pods-Bamiboo/Pods-Bamiboo.debug.xcconfig"; sourceTree = "<group>"; };
 		BA02AB062578719F00740367 /* LayoutAutoresizingMaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAutoresizingMaskViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +98,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		38D06B5C25835E0700DAA5AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				38D06B5D25835E1500DAA5AF /* AlarmWaitForFreeCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		696B2D1452EBD9C335D751B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +135,8 @@
 		BA48B0342581AB1D005DBE29 /* AlarmWaitForFree */ = {
 			isa = PBXGroup;
 			children = (
+				38D06B5C25835E0700DAA5AF /* Views */,
+				38D06B5825835DDB00DAA5AF /* AlarmWaitForFreeViewModel.swift */,
 				BA48B0362581AB54005DBE29 /* AlarmWaitForFreeViewController.swift */,
 			);
 			path = AlarmWaitForFree;
@@ -356,7 +370,9 @@
 				BAF8E95A2577922600172777 /* LayoutFrameViewController.swift in Sources */,
 				BAE199BC257DB88900F42030 /* OrangeTitleView.swift in Sources */,
 				BA02AB152578D39200740367 /* AutoLayoutStackViewViewController.swift in Sources */,
+				38D06B5925835DDB00DAA5AF /* AlarmWaitForFreeViewModel.swift in Sources */,
 				BAF8E9102577299200172777 /* MainViewController.swift in Sources */,
+				38D06B5E25835E1500DAA5AF /* AlarmWaitForFreeCell.swift in Sources */,
 				BA48B0372581AB54005DBE29 /* AlarmWaitForFreeViewController.swift in Sources */,
 				38D06B502582F8BC00DAA5AF /* AlarmNoticeCell.swift in Sources */,
 				BAE199F22580610D00F42030 /* AlarmMyNewsCell.swift in Sources */,
