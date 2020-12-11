@@ -21,9 +21,10 @@ class AlarmViewController: UIViewController {
         tv.segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         return tv
     }()
-    var scrollView: UIScrollView = {
+    lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.delegate = self
         sv.isScrollEnabled = false
         sv.showsVerticalScrollIndicator = false
         sv.showsHorizontalScrollIndicator = false
@@ -147,16 +148,20 @@ class AlarmViewController: UIViewController {
 
 // MARK: SwipeViewControllerDelegate
 extension AlarmViewController: AlarmViewControllerDelegate {
-    
     func movePage() {
         let pageNum: Int = vm.nowPageState
         let offSetX = scrollView.frame.width * CGFloat(pageNum)
         let offSetY = scrollView.contentOffset.y
         
         scrollView.setContentOffset(CGPoint(x: offSetX, y: offSetY), animated: true)
-        contentViews[pageNum].didMove(toParent: self)
-        
         titleView.segmentedControl.selectedSegmentIndex = pageNum
+        contentViews[pageNum].didMove(toParent: self)
     }
-    
+}
+
+
+// TODO: 가끔 공지사항 탭으로 갈 때, setContentOffset 애니메이션이 끊기는 경우가 있음!!
+extension AlarmViewController: UIScrollViewDelegate {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    }
 }
