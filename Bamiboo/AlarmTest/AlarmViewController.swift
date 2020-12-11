@@ -7,13 +7,20 @@
 
 import UIKit
 
-// MARK: SwipeViewController
-class SwipeViewController: UIViewController {
-    var vm: SwipeViewControllerModel = SwipeViewControllerModel()
-    
+// MARK: AlarmViewController
+class AlarmViewController: UIViewController {
+    var vm: AlarmViewControllerModel = AlarmViewControllerModel()
     
     // MARK: Views
-    var titleView: TitleView!
+    lazy var titleView: TitleView = {
+        let tv = TitleView()
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.titleLabel.text = "알림"
+        tv.setTitles(titles: vm.allPageStates.map { $0.getTitle() })
+        tv.closeButton.addTarget(self, action: #selector(closeBtnClicked), for: .touchUpInside)
+        tv.segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+        return tv
+    }()
     var scrollView: UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +40,8 @@ class SwipeViewController: UIViewController {
     }()
     var contentViews: [UIViewController] = []
     
+    
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,20 +49,14 @@ class SwipeViewController: UIViewController {
         view.backgroundColor = .black
         
         // titleView
-        titleView = TitleView()
-        titleView.setTitles(titles: vm.getAllPageStates().map { $0.getTitle() })
         view.addSubview(titleView)
         NSLayoutConstraint.activate([
-            // titleView
             titleView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             titleView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             titleView.heightAnchor.constraint(equalToConstant: TitleView.TITLE_VIEW_HEIGHT),
         ])
-        // ------ set Target
-        titleView.closeButton.addTarget(self, action: #selector(closeBtnClicked), for: .touchUpInside)
-        titleView.segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
-        
+        // scrollView
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -61,8 +64,7 @@ class SwipeViewController: UIViewController {
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
-        
-        
+        // stackView
         scrollView.addSubview(stackView)
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -70,24 +72,20 @@ class SwipeViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: CGFloat(vm.getAllPageStates().count))
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: CGFloat(vm.allPageStates.count))
         ])
         
-        contentViews.removeAll() // 이건 그냥... 습관적으로
-        vm.getAllPageStates().forEach { state in
-            let sv = UIStackView()
-            sv.translatesAutoresizingMaskIntoConstraints = false
+        vm.allPageStates.forEach { state in
+            let sv = UIStackView() // 꽉차게 vc.view 바로 넣으려고 UIStackView 사용 (NSLayoutContraint 사용하기 번거로워서)
+            stackView.addArrangedSubview(sv)
             sv.alignment = .fill
             sv.distribution = .fill
-            stackView.addArrangedSubview(sv)
             let vc = state.getViewControllerType().init()
-            self.addChild(vc)
-//            vc.didMove(toParent: self)
             sv.addArrangedSubview(vc.view)
-            contentViews.append(vc)
+            contentViews.append(vc) // 전역변수에 반영
         }
         
-        // set Swipe Gesture
+        // set Swipe Gesture (.left & .right)
         let swipeRightGR = UISwipeGestureRecognizer()
         swipeRightGR.direction = .right
         swipeRightGR.addTarget(self, action: #selector(viewSwiped(_:)))
@@ -102,7 +100,10 @@ class SwipeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // 다른 ViewController의 navigationBar 상태와 상관없이 SwipeViewController 화면으로 진입하면 무조건 navigationBar Hidden 처리하기 위해 viewWillAppear 에 둠
         navigationController?.navigationBar.isHidden = true
+        
+        // 반드시 viewDidLoad 에서 addSubView 다 끝내고 처리해야하는 코드라 viewWillAppear 에 넣음
         view.bringSubviewToFront(titleView)
         
         // popViewController 를 통해 다시 보여졌을 때, API를 또 request 해야한다고 가정했을 때...
@@ -120,7 +121,7 @@ class SwipeViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         // portrait <-> landscape 전환시 scrollView 의 offset 값을 회전 후의 scrollView width 값에 상대적으로 반영되기 위해 viewDidLayoutSubviews() 사용
-        scrollView.setContentOffset(CGPoint(x: scrollView.frame.width * CGFloat(vm.getNowPageState()), y: scrollView.contentOffset.y), animated: false)
+        scrollView.setContentOffset(CGPoint(x: scrollView.frame.width * CGFloat(vm.nowPageState), y: scrollView.contentOffset.y), animated: false)
     }
     
     
@@ -145,10 +146,10 @@ class SwipeViewController: UIViewController {
 
 
 // MARK: SwipeViewControllerDelegate
-extension SwipeViewController: SwipeViewControllerDelegate {
+extension AlarmViewController: AlarmViewControllerDelegate {
     
     func movePage() {
-        let pageNum: Int = vm.getNowPageState()
+        let pageNum: Int = vm.nowPageState
         let offSetX = scrollView.frame.width * CGFloat(pageNum)
         let offSetY = scrollView.contentOffset.y
         

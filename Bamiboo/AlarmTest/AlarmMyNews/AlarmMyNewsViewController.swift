@@ -8,15 +8,15 @@
 import UIKit
 
 class AlarmMyNewsViewController: UIViewController {
-    let vm = AlarmMyNewsViewModel()
-    let reusableIdentifier = "cell"
+    private let vm = AlarmMyNewsViewModel()
+    private let reusableIdentifier = "cell"
     
     // MARK: Views
     lazy var contentCollectionView: UICollectionView = {
         let l = UICollectionViewFlowLayout()
         l.scrollDirection = .vertical
         l.headerReferenceSize = CGSize(width: view.bounds.width, height: TitleView.TITLE_VIEW_HEIGHT)
-        l.itemSize = CGSize(width: view.bounds.width, height: 100)
+        l.itemSize = CGSize(width: view.bounds.width, height: 100) // UICollectionViewCell 고정 크기 (TODO : landscape 는???)
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: l)
         cv.translatesAutoresizingMaskIntoConstraints = false
@@ -34,8 +34,6 @@ class AlarmMyNewsViewController: UIViewController {
         vm.delegate = self
         view.backgroundColor = .black
         
-        
-        // ------ set Layout
         view.addSubview(contentCollectionView)
         NSLayoutConstraint.activate([
             contentCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -47,8 +45,7 @@ class AlarmMyNewsViewController: UIViewController {
     
     override func didMove(toParent parent: UIViewController?) {
         super.didMove(toParent: parent)
-        
-        vm.requestDataSource()
+        vm.requestDataSource() // 탭 전환될 떄마다 데이터 새로 가져오기
     }
 }
 

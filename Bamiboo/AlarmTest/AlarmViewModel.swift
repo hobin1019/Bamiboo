@@ -13,8 +13,9 @@ enum PAGE_MOVE_STATE {
     case prev, next
 }
 
-// MARK: SwipeViewControllerDelegate
-protocol SwipeViewControllerDelegate: class {
+
+// MARK: AlarmViewControllerDelegate
+protocol AlarmViewControllerDelegate: class {
     func movePage()
 }
 
@@ -42,21 +43,17 @@ enum ALARM_PAGE_STATE: Int {
 }
 
 
-// MARK: SwipeViewControllerModel
-class SwipeViewControllerModel {
-    weak var delegate: SwipeViewControllerDelegate!
+// MARK: AlarmViewControllerModel
+class AlarmViewControllerModel {
+    weak var delegate: AlarmViewControllerDelegate!
     
-    private let allPageStates: [ALARM_PAGE_STATE] = [.myNews, .waitForFree, .notice]
-    private var nowPageState: Int = 0 {
+    let allPageStates: [ALARM_PAGE_STATE] = [.myNews, .waitForFree, .notice] // let 이라 public 이어도 됨
+    private(set) var nowPageState: Int = 0 {
         didSet { delegate.movePage() }
     }
     
-    func getAllPageStates() -> [ALARM_PAGE_STATE] {
-        return allPageStates
-    }
-    func getNowPageState() -> Int {
-        return nowPageState
-    }
+    
+    // MARK: Public Functions
     func setNowPageState(_ state: PAGE_MOVE_STATE) {
         if state == .prev && nowPageState > allPageStates.indices.first! {
             nowPageState = nowPageState - 1

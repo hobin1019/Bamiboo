@@ -14,7 +14,9 @@ protocol AlarmMyNewsViewDelegate: class {
 class AlarmMyNewsViewModel {
     weak var delegate: AlarmMyNewsViewDelegate!
     
-    var dataSource: [AlarmMyNewsItem] = []
+    var dataSource: [AlarmMyNewsItem] = [] {
+        didSet { delegate.reloadCollectionView() }
+    }
     
     func requestDataSource() {
         dataSource = [
@@ -31,6 +33,5 @@ class AlarmMyNewsViewModel {
             AlarmMyNewsItem(title: "title2\nsubtitle2", imageUrl: "https://homepages.cae.wisc.edu/~ece533/images/cameraman.tif", time: "2020.12.03"),
             AlarmMyNewsItem(title: "title3\nsubtitle3", imageUrl: "https://homepages.cae.wisc.edu/~ece533/images/airplane.png", time: "2020.10.20"),
         ]
-        delegate.reloadCollectionView()
     }
 }

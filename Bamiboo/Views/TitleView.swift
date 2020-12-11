@@ -15,7 +15,6 @@ class TitleView: UIView {
         l.translatesAutoresizingMaskIntoConstraints = false
         l.textColor = .white
         l.textAlignment = .center
-        l.text = "알림" // test
         return l
     }()
     var closeButton: UIButton = {
@@ -53,28 +52,26 @@ class TitleView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        // TitleView 를 사용하는 ViewController 가 Layout 처리할 때, 처리되도록
         NSLayoutConstraint.activate([
-            //
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+            // titleLabel
+            titleLabel.centerYAnchor.constraint(equalTo: closeButton.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            //
+            // closeButton
             closeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             closeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             closeButton.widthAnchor.constraint(equalToConstant: 35),
             closeButton.heightAnchor.constraint(equalTo: closeButton.widthAnchor, multiplier: 1),
-            //
+            // segmentedControl
             segmentedControl.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
             segmentedControl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-            segmentedControl.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            segmentedControl.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0),
             segmentedControl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
             segmentedControl.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
     
     private func commonInit() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        
-        // test
         self.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
         
         self.addSubview(titleLabel)

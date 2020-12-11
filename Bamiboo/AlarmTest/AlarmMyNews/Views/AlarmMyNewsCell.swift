@@ -10,6 +10,7 @@ import UIKit
 
 class AlarmMyNewsCell: UICollectionViewCell {
     
+    // MARK: Views
     private var titleLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
@@ -35,6 +36,8 @@ class AlarmMyNewsCell: UICollectionViewCell {
         return iv
     }()
     
+    
+    // MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -43,7 +46,6 @@ class AlarmMyNewsCell: UICollectionViewCell {
         super.init(coder: coder)
         commonInit()
     }
-    
     private func commonInit() {
         contentView.backgroundColor = .black
         
@@ -69,6 +71,7 @@ class AlarmMyNewsCell: UICollectionViewCell {
     }
     
     
+    // MARK: Public Functions
     func setData(data: AlarmMyNewsItem) {
         titleLabel.text = data.getTitle()
         timeLabel.text = data.getTime()
@@ -86,6 +89,7 @@ class AlarmMyNewsCell: UICollectionViewCell {
 }
 
 
+// MARK: AlarmMyNewsItem
 struct AlarmMyNewsItem {
     private var title: String!
     private var imageUrl: String!
@@ -102,11 +106,9 @@ struct AlarmMyNewsItem {
     func getTitle() -> String? {
         return title
     }
-    
     func getImageUrl() -> URL? {
         return URL(string: imageUrl)
     }
-    
     func getTime() -> String? {
         if time == nil { return nil }
         
