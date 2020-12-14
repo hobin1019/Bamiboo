@@ -17,7 +17,7 @@ class AlarmMyNewsCell: UICollectionViewCell {
         l.textAlignment = .left
         l.textColor = .white
         l.font.withSize(100)
-        l.numberOfLines = 2
+        l.numberOfLines = 2 // 최대 2줄
         l.text = ""
         return l
     }()
@@ -73,10 +73,10 @@ class AlarmMyNewsCell: UICollectionViewCell {
     
     // MARK: Public Functions
     func setData(data: AlarmMyNewsItem) {
-        titleLabel.text = data.getTitle()
-        timeLabel.text = data.getTime()
+        titleLabel.text = data.title
+        timeLabel.text = data.getTimeString()
         
-        if let url = data.getImageUrl() {
+        if let url = data.getThumbnailUrl() {
             URLSession.shared.dataTask(with: url) {(data, response, error) in
                 guard let data = data else { return }
                 DispatchQueue.main.async {
@@ -91,34 +91,42 @@ class AlarmMyNewsCell: UICollectionViewCell {
 
 // MARK: AlarmMyNewsItem
 struct AlarmMyNewsItem {
-    private var title: String!
-    private var imageUrl: String!
-    private var time: String!
+    private(set) var title: String?
+    private(set) var thumbnail: String?
+    private(set) var time: String?
     
-    init(title: String, imageUrl: String, time: String) {
+    init(title: String, thumbnail: String, time: String) {
         self.title = title
-        self.imageUrl = imageUrl
+        self.thumbnail = thumbnail
         self.time = time
     }
     
     
     // ------ get Functions
-    func getTitle() -> String? {
-        return title
+    func getThumbnailUrl() -> URL? {
+        guard let thumbnail = thumbnail else { return nil }
+        return URL(string: thumbnail)
     }
-    func getImageUrl() -> URL? {
-        return URL(string: imageUrl)
+    
+    // Date <-> String 하는 Common 함수가 있다면 그걸 사용
+    func getDateTime() -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        guard let thumbnail = thumbnail else { return nil }
+        return formatter.date(from: thumbnail)
     }
-    func getTime() -> String? {
+    
+    func getTimeString() -> String? {
         if time == nil { return nil }
+        
+        guard let timeDate = getDateTime() else { return nil }
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
-        guard let timeDate = formatter.date(from: time) else {return nil}
-        
         let nowDate = Date()
         let nowStr = formatter.string(from: nowDate)
         
+        // TODO: 'ago' 공통정책 적용
         let diff = Calendar.current.dateComponents([.day, .hour, .second], from: timeDate, to: nowDate)
         if nowStr == time {
             return "\(diff.hour ?? 0)시간 전"
