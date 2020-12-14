@@ -8,7 +8,7 @@
 import UIKit
 
 
-// MARK: Enum
+// MARK: PAGE_MOVE_STATE
 enum PAGE_MOVE_STATE {
     case prev, next
 }
