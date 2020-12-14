@@ -33,6 +33,7 @@ class AlarmNoticeCell: UICollectionViewCell {
     private lazy var titleLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = .boldSystemFont(ofSize: 19.0)
         l.numberOfLines = 0
         l.textColor = .white
         return l
@@ -46,6 +47,7 @@ class AlarmNoticeCell: UICollectionViewCell {
     private lazy var timeLabel: UILabel = {
         let l = UILabel()
         l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = .systemFont(ofSize: 16.0)
         l.textColor = .lightGray
         return l
     }()
@@ -103,27 +105,27 @@ class AlarmNoticeCell: UICollectionViewCell {
         contentsView.addSubview(contentLabel)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
-            titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor, constant: 8),
-            titleLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 10),
-            titleLabel.trailingAnchor.constraint(equalTo: iconImageView.leadingAnchor, constant: -10),
+            titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: iconImageView.leadingAnchor, constant: -10),
             
             iconImageView.widthAnchor.constraint(equalToConstant: 20),
             iconImageView.heightAnchor.constraint(equalTo: iconImageView.widthAnchor, multiplier: 1),
             iconImageView.firstBaselineAnchor.constraint(equalTo: titleLabel.firstBaselineAnchor),
-            iconImageView.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: -10),
+            iconImageView.trailingAnchor.constraint(equalTo: titleView.trailingAnchor),
             
             timeLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             timeLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: -8),
             
             lineViews[0].topAnchor.constraint(equalTo: contentsView.topAnchor),
-            lineViews[0].leadingAnchor.constraint(equalTo: contentsView.leadingAnchor, constant: 10),
-            lineViews[0].trailingAnchor.constraint(equalTo: contentsView.trailingAnchor, constant: -10),
+            lineViews[0].leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            lineViews[0].trailingAnchor.constraint(equalTo: iconImageView.trailingAnchor),
             lineViews[0].heightAnchor.constraint(equalToConstant: 0.5),
             
             contentLabel.topAnchor.constraint(equalTo: lineViews[0].bottomAnchor, constant: 8),

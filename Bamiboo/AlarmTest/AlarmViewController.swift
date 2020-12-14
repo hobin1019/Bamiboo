@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: AlarmViewController
 class AlarmViewController: UIViewController {
-    var vm: AlarmViewControllerModel = AlarmViewControllerModel()
+    var vm: AlarmViewModel = AlarmViewModel()
     
     // MARK: Views
     lazy var titleView: TitleView = {
@@ -147,7 +147,7 @@ class AlarmViewController: UIViewController {
 
 
 // MARK: AlarmViewControllerDelegate
-extension AlarmViewController: AlarmViewControllerDelegate {
+extension AlarmViewController: AlarmViewDelegate {
     func disappearPage() {
         contentViews[vm.nowPageState].beginAppearanceTransition(false, animated: false)
     }

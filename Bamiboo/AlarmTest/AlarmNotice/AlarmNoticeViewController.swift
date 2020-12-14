@@ -77,8 +77,18 @@ extension AlarmNoticeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // let offsetY = collectionView.contentOffset.y
         vm.addOpenView(indexPath.row)
         collectionView.reloadItems(at: [indexPath])
+        
+        /*
+        collectionView.performBatchUpdates({
+                        collectionView.setContentOffset(CGPoint(x: collectionView.contentOffset.x, y: offsetY), animated: false) // test
+        }, completion: { _ in
+//            collectionView.setContentOffset(CGPoint(x: collectionView.contentOffset.x, y: offsetY), animated: false) // test
+            collectionView.scrollToItem(at: IndexPath(row: indexPath.row, section: indexPath.section), at: .centeredVertically, animated: false)
+        })
+         */
     }
 }
 

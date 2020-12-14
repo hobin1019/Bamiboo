@@ -124,7 +124,7 @@ struct AlarmWaitForFreeItem {
     
     private var formatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
+        formatter.dateFormat = "yyyy.MM.dd HH:mm:ss"
         return formatter
     }()
     private var nowDate: Date? {
@@ -169,11 +169,10 @@ struct AlarmWaitForFreeItem {
         }
     }
     func getIsTimerDone() -> Bool {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
-        
-        guard let time = time, let timeDate = formatter.date(from: time) else { return false }
-        return Date() >= timeDate
+        guard let nowDate = nowDate, let time = time, let timeDate = formatter.date(from: time) else {
+            return false
+        }
+        return nowDate >= timeDate
     }
     
     

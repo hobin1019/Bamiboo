@@ -117,14 +117,14 @@ class AlarmMyNewsCell: UICollectionViewCell {
 
 // MARK: AlarmMyNewsItem
 struct AlarmMyNewsItem {
-    private(set) var title: String?         // 타이틀
-    private(set) var thumbnail: String?     // 썸네일 이미지
-    private(set) var time: String?          // 알림이 온 시점
+    let title: String?         // 타이틀
+    let thumbnail: String?     // 썸네일 이미지
+    let time: String?          // 알림이 온 시점
     private(set) var readable: Bool?        // 사용자 읽음 여부
     
     private var formatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
+        formatter.dateFormat = "yyyy.MM.dd HH:mm:ss"
         return formatter
     }()
     private var nowDate: Date? {
@@ -161,7 +161,9 @@ struct AlarmMyNewsItem {
         else if diffDay < 7 {
             return "\(diffDay)일 전"
         } else {
-            return time
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy.MM.dd"
+            return formatter.string(from: timeDate)
         }
     }
     
