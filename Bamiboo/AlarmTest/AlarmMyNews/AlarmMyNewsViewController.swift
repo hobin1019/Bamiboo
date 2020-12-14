@@ -84,4 +84,8 @@ extension AlarmMyNewsViewController: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        vm.readItem(indexPath.row)
+        collectionView.reloadItems(at: [indexPath])
+    }
 }

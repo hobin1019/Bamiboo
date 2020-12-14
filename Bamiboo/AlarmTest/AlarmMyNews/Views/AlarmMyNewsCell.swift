@@ -100,6 +100,7 @@ class AlarmMyNewsCell: UICollectionViewCell {
     func setData(data: AlarmMyNewsItem) {
         titleLabel.text = data.title
         timeLabel.text = data.getTimeString()
+        redDotView.isHidden = !(data.readable ?? true)
         
         if let url = data.getThumbnailUrl() {
             URLSession.shared.dataTask(with: url) {(data, response, error) in
@@ -116,9 +117,10 @@ class AlarmMyNewsCell: UICollectionViewCell {
 
 // MARK: AlarmMyNewsItem
 struct AlarmMyNewsItem {
-    private(set) var title: String?
-    private(set) var thumbnail: String?
-    private(set) var time: String?
+    private(set) var title: String?         // 타이틀
+    private(set) var thumbnail: String?     // 썸네일 이미지
+    private(set) var time: String?          // 알림이 온 시점
+    private(set) var readable: Bool?        // 사용자 읽음 여부
     
     private var formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -131,10 +133,11 @@ struct AlarmMyNewsItem {
         return Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: nowUTC)
     }
     
-    init(title: String, thumbnail: String, time: String) {
+    init(title: String, thumbnail: String, time: String, readable: Bool) {
         self.title = title
         self.thumbnail = thumbnail
         self.time = time
+        self.readable = readable
     }
     
     
@@ -160,6 +163,12 @@ struct AlarmMyNewsItem {
         } else {
             return time
         }
+    }
+    
+    
+    // ------ set Functions
+    mutating func setRead() {
+        readable = false
     }
 }
 

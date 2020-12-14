@@ -27,5 +27,10 @@ class AlarmWaitForFreeViewModel {
             AlarmWaitForFreeItem(title: "나는 이 집 아이", thumbnail: "https://homepages.cae.wisc.edu/~ece533/images/cameraman.tif", time: "2020.12.23", readable: true),
         ]
     }
+    
+    func readItem(_ index: Int) {
+        if !dataSource.indices.contains(index) { return }
+        dataSource[index].setRead()
+    }
 }
 
