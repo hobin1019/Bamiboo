@@ -17,7 +17,7 @@ class AlarmWaitForFreeViewController: UIViewController {
         let l = UICollectionViewFlowLayout()
         l.scrollDirection = .vertical
         l.headerReferenceSize = CGSize(width: view.bounds.width, height: TitleView.TITLE_VIEW_HEIGHT)
-        l.itemSize = CGSize(width: view.bounds.width, height: 100) // UICollectionViewCell 고정 크기 (TODO : landscape 는???)
+        l.itemSize = CGSize(width: view.bounds.width, height: 140) // UICollectionViewCell 고정 크기 (TODO : landscape 는???)
         
         let cv = UICollectionView(frame: .zero, collectionViewLayout: l)
         cv.translatesAutoresizingMaskIntoConstraints = false
