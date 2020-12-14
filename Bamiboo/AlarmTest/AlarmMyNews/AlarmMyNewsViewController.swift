@@ -10,6 +10,7 @@ import UIKit
 class AlarmMyNewsViewController: UIViewController {
     private let vm = AlarmMyNewsViewModel()
     private let reusableIdentifier = "cell"
+    override var shouldAutomaticallyForwardAppearanceMethods: Bool { false }
     
     // MARK: Views
     lazy var contentCollectionView: UICollectionView = {
@@ -43,9 +44,16 @@ class AlarmMyNewsViewController: UIViewController {
         ])
     }
     
-    override func didMove(toParent parent: UIViewController?) {
-        super.didMove(toParent: parent)
-        vm.requestDataSource() // 탭 전환될 떄마다 데이터 새로 가져오기
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("내소식 - viewWillAppear")
+        vm.requestDataSource() // 탭 전환될 때마다 데이터 새로 가져오기
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("내소식 - viewWillDisappear")
+        // 탭 전환 직전에 데이터 지우기
     }
 }
 

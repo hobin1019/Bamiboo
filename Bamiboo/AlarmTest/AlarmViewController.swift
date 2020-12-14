@@ -109,7 +109,6 @@ class AlarmViewController: UIViewController {
         
         // popViewController 를 통해 다시 보여졌을 때, API를 또 request 해야한다고 가정했을 때...
         vm.setNowPageState(0)
-        contentViews[vm.nowPageState].didMove(toParent: self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -149,12 +148,20 @@ class AlarmViewController: UIViewController {
 
 // MARK: AlarmViewControllerDelegate
 extension AlarmViewController: AlarmViewControllerDelegate {
+    func disappearPage() {
+        contentViews[vm.nowPageState].beginAppearanceTransition(false, animated: false)
+    }
+    
     func scrollPage() {
         let pageNum: Int = vm.nowPageState
         let offSetX = scrollView.frame.width * CGFloat(pageNum)
         let offSetY = scrollView.contentOffset.y
         
-        scrollView.setContentOffset(CGPoint(x: offSetX, y: offSetY), animated: true)
+        if scrollView.contentOffset.x == offSetX { // scroll 안함 (초기화면의 경우)
+            contentViews[vm.nowPageState].beginAppearanceTransition(true, animated: false)
+        } else { // scroll 함 (페이지가 전환되는 경우)
+            scrollView.setContentOffset(CGPoint(x: offSetX, y: offSetY), animated: true)
+        }
         titleView.segmentedControl.selectedSegmentIndex = pageNum
     }
 }
@@ -164,10 +171,12 @@ extension AlarmViewController: AlarmViewControllerDelegate {
 extension AlarmViewController: UIScrollViewDelegate {
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView {
-            // 가끔 공지사항 탭으로 갈 때, setContentOffset 애니메이션이 끊기는 경우가 있음!!
-            // -> 스크롤 처리 끝나는 시점마다 해당 페이지 didMove 함수를 호출해 데이터를 가져오도록 함
-            // (단, setContentOffset 함수가 movePage 에서만 호출된다는 가정이 있어야 함;;;)
-            contentViews[vm.nowPageState].didMove(toParent: self)
+            /*
+             가끔 공지사항 탭으로 갈 때, setContentOffset 애니메이션이 끊기는 경우가 있음!!
+             -> 스크롤 처리 끝나는 시점마다 해당 페이지를 호출해 데이터를 가져오도록 함
+             (단, setContentOffset 함수가 movePage 에서만 호출된다는 가정이 있어야 함;;;)
+             */
+            contentViews[vm.nowPageState].beginAppearanceTransition(true, animated: false)
         }
     }
 }

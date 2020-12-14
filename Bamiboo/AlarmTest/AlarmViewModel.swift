@@ -16,6 +16,7 @@ enum PAGE_MOVE_STATE {
 
 // MARK: AlarmViewControllerDelegate
 protocol AlarmViewControllerDelegate: class {
+    func disappearPage()
     func scrollPage()
 }
 
@@ -49,6 +50,7 @@ class AlarmViewControllerModel {
     
     let allPageStates: [ALARM_PAGE_STATE] = [.myNews, .waitForFree, .notice] // let 이라 public 이어도 됨
     private(set) var nowPageState: Int = 0 {
+        willSet { delegate.disappearPage() }
         didSet { delegate.scrollPage() }
     }
     
