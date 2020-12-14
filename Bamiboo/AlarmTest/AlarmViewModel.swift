@@ -9,23 +9,21 @@ import UIKit
 
 
 // MARK: PAGE_MOVE_STATE
-enum PAGE_MOVE_STATE {
+enum PageMoveState {
     case prev, next
 }
 
 
 // MARK: AlarmViewDelegate
 protocol AlarmViewDelegate: class {
-    func disappearPage()
-    func scrollPage()
+    func contentViewWillDisappear()
+    func contentViewWillAppear()
 }
 
 
 // MARK: ALARM_PAGE_STATE
-enum ALARM_PAGE_STATE: Int {
-    case myNews         = 0
-    case waitForFree    = 1
-    case notice         = 2
+enum AlarmPageState: CaseIterable {
+    case myNews, waitForFree, notice
     
     func getTitle() -> String {
         switch (self) {
@@ -48,15 +46,15 @@ enum ALARM_PAGE_STATE: Int {
 class AlarmViewModel {
     weak var delegate: AlarmViewDelegate!
     
-    let allPageStates: [ALARM_PAGE_STATE] = [.myNews, .waitForFree, .notice] // let 이라 public 이어도 됨
+    let allPageStates: [AlarmPageState] = AlarmPageState.allCases
     private(set) var nowPageState: Int = 0 {
-        willSet { delegate.disappearPage() }
-        didSet { delegate.scrollPage() }
+        willSet { delegate.contentViewWillDisappear() }
+        didSet { delegate.contentViewWillAppear() }
     }
     
     
     // MARK: Public Functions
-    func setNowPageState(_ state: PAGE_MOVE_STATE) {
+    func setNowPageState(_ state: PageMoveState) {
         if state == .prev && nowPageState > allPageStates.indices.first! {
             nowPageState = nowPageState - 1
         } else if state == .next && nowPageState < allPageStates.indices.last! {

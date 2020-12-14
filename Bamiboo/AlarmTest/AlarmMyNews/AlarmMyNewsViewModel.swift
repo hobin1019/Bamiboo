@@ -8,14 +8,14 @@
 import Foundation
 
 protocol AlarmMyNewsViewDelegate: class {
-    func reloadCollectionView()
+    func collectionViewWillReload()
 }
 
 class AlarmMyNewsViewModel {
     weak var delegate: AlarmMyNewsViewDelegate!
     
     var dataSource: [AlarmMyNewsItem] = [] {
-        didSet { delegate.reloadCollectionView() }
+        didSet { delegate.collectionViewWillReload() }
     }
     
     func requestDataSource() {

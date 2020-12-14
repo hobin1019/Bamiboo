@@ -58,7 +58,7 @@ class AlarmNoticeViewController: UIViewController {
 }
 
 extension AlarmNoticeViewController: AlarmNoticeViewDelegate {
-    func reloadContentsView() {
+    func collectionViewWillReload() {
         contentCollectionView.reloadData()
     }
 }

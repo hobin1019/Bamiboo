@@ -148,11 +148,11 @@ class AlarmViewController: UIViewController {
 
 // MARK: AlarmViewControllerDelegate
 extension AlarmViewController: AlarmViewDelegate {
-    func disappearPage() {
+    func contentViewWillDisappear() {
         contentViews[viewModel.nowPageState].beginAppearanceTransition(false, animated: false)
     }
     
-    func scrollPage() {
+    func contentViewWillAppear() {
         let pageNum: Int = viewModel.nowPageState
         let offSetX = scrollView.frame.width * CGFloat(pageNum)
         let offSetY = scrollView.contentOffset.y

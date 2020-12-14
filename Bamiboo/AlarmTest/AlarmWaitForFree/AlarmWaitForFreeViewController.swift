@@ -60,7 +60,7 @@ class AlarmWaitForFreeViewController: UIViewController {
 
 // MARK: AlarmViewDelegate
 extension AlarmWaitForFreeViewController: AlarmWaitForFreeViewDelegate {
-    func reloadCollectionView() {
+    func collectionViewWillReload() {
         contentCollectionView.reloadData()
     }
 }

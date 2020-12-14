@@ -60,7 +60,7 @@ class AlarmMyNewsViewController: UIViewController {
 
 // MARK: AlarmViewDelegate
 extension AlarmMyNewsViewController: AlarmMyNewsViewDelegate {
-    func reloadCollectionView() {
+    func collectionViewWillReload() {
         contentCollectionView.reloadData()
     }
 }

@@ -8,14 +8,14 @@
 import Foundation
 
 protocol AlarmWaitForFreeViewDelegate: class {
-    func reloadCollectionView()
+    func collectionViewWillReload()
 }
 
 class AlarmWaitForFreeViewModel {
     weak var delegate: AlarmWaitForFreeViewDelegate!
     
     var dataSource: [AlarmWaitForFreeItem] = [] {
-        didSet { delegate.reloadCollectionView() }
+        didSet { delegate.collectionViewWillReload() }
     }
     
     func requestDataSource() {

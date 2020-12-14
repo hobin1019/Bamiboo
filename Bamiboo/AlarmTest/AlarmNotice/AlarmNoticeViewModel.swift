@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol AlarmNoticeViewDelegate: class {
-    func reloadContentsView()
+    func collectionViewWillReload()
 }
 
 class AlarmNoticeViewModel {
@@ -18,7 +18,7 @@ class AlarmNoticeViewModel {
     private(set) var dataSource: [AlarmNoticeItem] = [] {
         didSet {
             isOpened.removeAll()
-            delegate.reloadContentsView()
+            delegate.collectionViewWillReload()
         }
     }
     private(set) var isOpened: Set<Int> = Set()
