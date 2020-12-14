@@ -19,6 +19,10 @@ class AlarmMyNewsViewModel {
     }
     
     func requestDataSource() {
+        /* TODO
+         nw_protocol_get_quic_image_block_invoke dlopen libquic failed 오류가 종종 남
+         이미지 순서가 안맞게 뿌려질 때가 있읔
+         */
         dataSource = [
             AlarmMyNewsItem(title: "title1\nsubtitle1", imageUrl: "https://homepages.cae.wisc.edu/~ece533/images/arctichare.png", time: "2020.12.09"),
             AlarmMyNewsItem(title: "title2\nsubtitle2", imageUrl: "https://homepages.cae.wisc.edu/~ece533/images/cameraman.tif", time: "2020.12.03"),
