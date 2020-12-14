@@ -12,41 +12,41 @@ class AlarmMyNewsCell: UICollectionViewCell {
     
     // MARK: Views
     private var titleView: UIView = {
-        let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = .clear
-        return v
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        return view
     }()
     private var titleLabel: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.textAlignment = .left
-        l.textColor = .white
-        l.font = UIFont.boldSystemFont(ofSize: 20.0)
-        l.numberOfLines = 2 // 최대 2줄
-        l.text = ""
-        return l
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.numberOfLines = 2 // 최대 2줄
+        label.text = ""
+        return label
     }()
     private var timeLabel: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.textAlignment = .left
-        l.textColor = .gray
-        l.text = ""
-        return l
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .left
+        label.textColor = .gray
+        label.text = ""
+        return label
     }()
     private var redDotView: UIView = {
-        let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = .red
-        v.layer.cornerRadius = 3
-        return v
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        view.layer.cornerRadius = 3
+        return view
     }()
     private var imageView: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFit
-        return iv
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     

@@ -18,60 +18,60 @@ class AlarmNoticeCell: UICollectionViewCell {
     
     // MARK: Views
     private lazy var stackView: UIStackView = {
-        let sv = UIStackView()
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.axis = .vertical
-        sv.alignment = .fill
-        sv.distribution = .fill
-        return sv
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        return stackView
     }()
     private lazy var titleView: UIView = {
-        let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     private lazy var titleLabel: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .boldSystemFont(ofSize: 19.0)
-        l.numberOfLines = 0
-        l.textColor = .white
-        return l
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .boldSystemFont(ofSize: 19.0)
+        label.numberOfLines = 0
+        label.textColor = .white
+        return label
     }()
     private lazy var iconImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.contentMode = .scaleAspectFit
-        return iv
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     private lazy var timeLabel: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = .systemFont(ofSize: 16.0)
-        l.textColor = .lightGray
-        return l
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 16.0)
+        label.textColor = .lightGray
+        return label
     }()
     private lazy var contentsView: UIView = {
-        let v = UIView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     private lazy var lineViews: [UIView] = {
-        var vs: [UIView] = []
+        var views: [UIView] = []
         for i in 0..<2 {
-            let v = UIView()
-            v.translatesAutoresizingMaskIntoConstraints = false
-            v.backgroundColor = .lightGray
-            vs.append(v)
+            let view = UIView()
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.backgroundColor = .lightGray
+            views.append(view)
         }
-        return vs
+        return views
     }()
     private lazy var contentLabel: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.textColor = .white
-        l.numberOfLines = 0
-        return l
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.numberOfLines = 0
+        return label
     }()
     
     

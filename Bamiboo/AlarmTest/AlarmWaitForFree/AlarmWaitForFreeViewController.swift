@@ -8,23 +8,23 @@
 import UIKit
 
 class AlarmWaitForFreeViewController: UIViewController {
-    private let vm = AlarmWaitForFreeViewModel()
+    private let viewModel = AlarmWaitForFreeViewModel()
     private let reusableIdentifier = "cell"
     override var shouldAutomaticallyForwardAppearanceMethods: Bool { false }
     
     // MARK: Views
     lazy var contentCollectionView: UICollectionView = {
-        let l = UICollectionViewFlowLayout()
-        l.scrollDirection = .vertical
-        l.headerReferenceSize = CGSize(width: view.bounds.width, height: TitleView.TITLE_VIEW_HEIGHT)
-        l.itemSize = CGSize(width: view.bounds.width, height: 140) // UICollectionViewCell 고정 크기 (TODO : landscape 는???)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.headerReferenceSize = CGSize(width: view.bounds.width, height: TitleView.TITLE_VIEW_HEIGHT)
+        layout.itemSize = CGSize(width: view.bounds.width, height: 140) // UICollectionViewCell 고정 크기 (TODO : landscape 는???)
         
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: l)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(AlarmWaitForFreeCell.self, forCellWithReuseIdentifier: reusableIdentifier)
-        cv.delegate = self
-        cv.dataSource = self
-        return cv
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(AlarmWaitForFreeCell.self, forCellWithReuseIdentifier: reusableIdentifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        return collectionView
     }()
 
     
@@ -32,7 +32,7 @@ class AlarmWaitForFreeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        vm.delegate = self
+        viewModel.delegate = self
         view.backgroundColor = .black
         
         view.addSubview(contentCollectionView)
@@ -47,7 +47,7 @@ class AlarmWaitForFreeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("기다무 - viewWillAppear")
-        vm.requestDataSource() // 탭 전환될 때마다 데이터 새로 가져오기
+        viewModel.requestDataSource() // 탭 전환될 때마다 데이터 새로 가져오기
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -75,17 +75,17 @@ extension AlarmWaitForFreeViewController: UICollectionViewDelegate {
 // MARK: UICollectionViewDataSource
 extension AlarmWaitForFreeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return vm.dataSource.count
+        return viewModel.dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath) as! AlarmWaitForFreeCell
-        cell.setData(data: vm.dataSource[indexPath.row])
+        cell.setData(data: viewModel.dataSource[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        vm.readItem(indexPath.row)
+        viewModel.readItem(indexPath.row)
         collectionView.reloadItems(at: [indexPath])
     }
 }
