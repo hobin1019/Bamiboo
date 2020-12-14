@@ -17,7 +17,7 @@ class AlarmViewController: UIViewController {
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.titleLabel.text = "알림"
         tv.setTitles(titles: vm.allPageStates.map { $0.getTitle() })
-        tv.closeButton.addTarget(self, action: #selector(closeBtnClicked), for: .touchUpInside)
+        tv.closeButton.addTarget(self, action: #selector(closeBtnTapped), for: .touchUpInside)
         tv.segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         return tv
     }()
@@ -127,7 +127,7 @@ class AlarmViewController: UIViewController {
     
     
     // MARK: Event Handlers
-    @objc private func closeBtnClicked() {
+    @objc private func closeBtnTapped() {
         navigationController?.popViewController(animated: true)
     }
     
