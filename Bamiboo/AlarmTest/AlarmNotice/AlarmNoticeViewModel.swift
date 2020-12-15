@@ -16,17 +16,20 @@ class AlarmNoticeViewModel {
     weak var delegate: AlarmNoticeViewDelegate!
     
     private(set) var dataSource: [AlarmNoticeItem] = [] {
-        didSet {
+        willSet {
             isOpened.removeAll()
+            for _ in 0..<newValue.count { isOpened.append(false) }
+        }
+        didSet {
             delegate.collectionViewWillReload()
         }
     }
-    private(set) var isOpened: Set<Int> = Set()
+    private(set) var isOpened: [Bool] = []
     
     
     // MARK: Public Functions
-    func addOpenView(_ idx: Int) {
-        isOpened.insert(idx)
+    func itemTapped(_ idx: Int) {
+        isOpened[idx] = !isOpened[idx]
     }
     
     func requestDataSource() {

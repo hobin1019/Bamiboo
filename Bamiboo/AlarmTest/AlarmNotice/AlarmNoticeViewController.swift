@@ -71,26 +71,38 @@ extension AlarmNoticeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath) as! AlarmNoticeCell
         cell.setData(data: viewModel.dataSource[indexPath.row])
-        let isHidden = !viewModel.isOpened.contains(indexPath.row)
+        let isHidden = !viewModel.isOpened[indexPath.row]
         cell.setContentsView(isHidden: isHidden)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // let offsetY = collectionView.contentOffset.y
-        viewModel.addOpenView(indexPath.row)
-        collectionView.reloadItems(at: [indexPath])
+        viewModel.itemTapped(indexPath.row)
         
-        /*
-        collectionView.performBatchUpdates({
-                        collectionView.setContentOffset(CGPoint(x: collectionView.contentOffset.x, y: offsetY), animated: false) // test
-        }, completion: { _ in
-//            collectionView.setContentOffset(CGPoint(x: collectionView.contentOffset.x, y: offsetY), animated: false) // test
-            collectionView.scrollToItem(at: IndexPath(row: indexPath.row, section: indexPath.section), at: .centeredVertically, animated: false)
-        })
-         */
+        if let cell = collectionView.cellForItem(at: indexPath) as? AlarmNoticeCell {
+            collectionView.performBatchUpdates({
+                collectionView.collectionViewLayout.invalidateLayout()
+            }, completion: { _ in
+                collectionView.collectionViewLayout.invalidateLayout()
+            })
+            
+            UIView.animate(withDuration: 1, animations: {
+                cell.setContentsView(isHidden: !self.viewModel.isOpened[indexPath.row])
+            })
+        }
     }
 }
 
 extension AlarmNoticeViewController: UICollectionViewDelegate {
+}
+
+extension AlarmNoticeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let resultSize = CGSize(width: collectionView.frame.width, height: 100)
+        if let cell = collectionView.cellForItem(at: indexPath) as? AlarmNoticeCell {
+            return CGSize(width: collectionView.frame.width, height: cell.getStackViewHeight())
+        }
+        return resultSize
+    }
 }

@@ -85,16 +85,9 @@ class AlarmNoticeCell: UICollectionViewCell {
         commonInit()
     }
     private func commonInit() {
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            contentView.topAnchor.constraint(equalTo: self.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
-        ])
+        self.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.addSubview(stackView)
+        self.addSubview(stackView)
         stackView.addArrangedSubview(titleView)
         stackView.addArrangedSubview(contentsView)
         titleView.addSubview(titleLabel)
@@ -105,10 +98,10 @@ class AlarmNoticeCell: UICollectionViewCell {
         contentsView.addSubview(contentLabel)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            stackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15),
+            stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
             
             titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor),
@@ -153,5 +146,9 @@ class AlarmNoticeCell: UICollectionViewCell {
     func setContentsView(isHidden: Bool) {
         contentsView.isHidden = isHidden
         iconImageView.image = UIImage(systemName: isHidden ? "xmark" : "message")
+    }
+    
+    func getStackViewHeight() -> CGFloat {
+        return stackView.frame.height
     }
 }
