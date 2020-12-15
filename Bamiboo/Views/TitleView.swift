@@ -14,7 +14,6 @@ class TitleView: UIView {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
         label.textColor = .white
         label.textAlignment = .center
         return label
