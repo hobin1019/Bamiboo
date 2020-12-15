@@ -85,16 +85,12 @@ extension AlarmNoticeViewController: UICollectionViewDataSource {
         viewModel.itemTapped(indexPath.row)
         
         if let cell = collectionView.cellForItem(at: indexPath) as? AlarmNoticeCell {
-            if self.viewModel.isOpened[indexPath.row] {
-                // set open
-                // : set shown -> expand height
+            if self.viewModel.isOpened[indexPath.row] { // set open : set shown -> expand height
                 cell.setCellState(isOpen: true)
                 collectionView.performBatchUpdates({
                     collectionView.collectionViewLayout.invalidateLayout()
                 })
-            } else {
-                // set close
-                // : shrink height -> set hidden
+            } else { // set close : shrink height -> set hidden
                 collectionView.performBatchUpdates({
                     collectionView.collectionViewLayout.invalidateLayout()
                 }, completion: { _ in
