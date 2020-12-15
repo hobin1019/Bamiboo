@@ -10,29 +10,31 @@ import UIKit
 class TitleView: UIView {
     static let TITLE_VIEW_HEIGHT: CGFloat = 100
     
+    // MARK: Views
     var titleLabel: UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.textColor = .white
-        l.textAlignment = .center
-        return l
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
     }()
     var closeButton: UIButton = {
-        let b = UIButton()
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setImage(UIImage(systemName: "xmark"), for: .normal)
-        b.tintColor = .white
-        return b
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "xmark"), for: .normal)
+        button.tintColor = .white
+        return button
     }()
     var segmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: [])
-        sc.translatesAutoresizingMaskIntoConstraints = false
-        sc.selectedSegmentIndex = 0
-        sc.selectedSegmentTintColor = .red
-        sc.backgroundColor = .lightGray
+        let segmentControl = UISegmentedControl(items: [])
+        segmentControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.selectedSegmentTintColor = .red
+        segmentControl.backgroundColor = .lightGray
         
-        sc.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
-        return sc
+        segmentControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+        return segmentControl
     }()
     
     
@@ -44,9 +46,6 @@ class TitleView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
-    }
-    
-    override func draw(_ rect: CGRect) {
     }
     
     override func layoutSubviews() {
