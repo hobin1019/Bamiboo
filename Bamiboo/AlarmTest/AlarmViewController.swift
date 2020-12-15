@@ -108,7 +108,7 @@ class AlarmViewController: UIViewController {
         view.bringSubviewToFront(titleView)
         
         // popViewController 를 통해 다시 보여졌을 때, API를 또 request 해야한다고 가정했을 때...
-        viewModel.setNowPageState(0)
+        viewModel.setNowPageState(2)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

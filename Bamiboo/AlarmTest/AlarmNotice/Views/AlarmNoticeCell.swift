@@ -85,6 +85,10 @@ class AlarmNoticeCell: UICollectionViewCell {
         return label
     }()
     
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        layoutIfNeeded()
+    }
     
     // MARK: init
     override init(frame: CGRect) {
@@ -163,7 +167,6 @@ class AlarmNoticeCell: UICollectionViewCell {
         return stackView.frame.height
     }
     func setCellState(isOpen: Bool) {
-        contentsView.isHidden = !isOpen
         iconImageView.image = UIImage(systemName: isOpen ? "message" : "xmark")
     }
 }

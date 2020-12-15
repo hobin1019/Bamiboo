@@ -86,14 +86,10 @@ extension AlarmNoticeViewController: UICollectionViewDataSource {
         
         if let cell = collectionView.cellForItem(at: indexPath) as? AlarmNoticeCell {
             if self.viewModel.isOpened[indexPath.row] { // set open : set shown -> expand height
+                collectionView.performBatchUpdates(nil, completion: nil)
                 cell.setCellState(isOpen: true)
-                collectionView.performBatchUpdates({
-                    collectionView.collectionViewLayout.invalidateLayout()
-                })
             } else { // set close : shrink height -> set hidden
-                collectionView.performBatchUpdates({
-                    collectionView.collectionViewLayout.invalidateLayout()
-                }, completion: { _ in
+                collectionView.performBatchUpdates(nil, completion: { _ in
                     cell.setCellState(isOpen: false)
                 })
             }
@@ -102,6 +98,12 @@ extension AlarmNoticeViewController: UICollectionViewDataSource {
 }
 
 extension AlarmNoticeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("willDisplay : \(indexPath.row)")
+    }
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print("didEndDisplaying : \(indexPath.row)")
+    }
 }
 
 extension AlarmNoticeViewController: UICollectionViewDelegateFlowLayout {
@@ -109,7 +111,6 @@ extension AlarmNoticeViewController: UICollectionViewDelegateFlowLayout {
         let cellWidth: CGFloat = UIDevice.current.orientation.isLandscape ? collectionView.bounds.height : collectionView.bounds.width
         let isOpened = viewModel.isOpened[indexPath.row]
         
-        /*
         if let cell = collectionView.cellForItem(at: indexPath) as? AlarmNoticeCell {
             if selectedIndexPath == nil {
                 return CGSize(width: cellWidth, height: cell.getClosedHeight()) // 초기 cell 사이즈
@@ -138,20 +139,5 @@ extension AlarmNoticeViewController: UICollectionViewDelegateFlowLayout {
                 return CGSize(width: cellWidth, height: titleViewHeight) // 초기 cell 사이즈
             }
         }
-        */
-        
-       let attrTitleString = NSAttributedString(string: viewModel.dataSource[indexPath.row].title, attributes: AlarmNoticeCell.titleAttribute)
-       let estTitleTextSize = attrTitleString.boundingRect(with: CGSize(width: cellWidth, height: CGFloat.infinity), options: [.usesLineFragmentOrigin, .usesFontLeading], context:nil).size
-       let attrTimeString = NSAttributedString(string: viewModel.dataSource[indexPath.row].time, attributes: AlarmNoticeCell.timeAttribute)
-       let estTimeTextSize = attrTimeString.boundingRect(with: CGSize(width: cellWidth, height: CGFloat.infinity), options: [.usesLineFragmentOrigin, .usesFontLeading], context:nil).size
-       let titleViewHeight = estTitleTextSize.height + estTimeTextSize.height + 8 * 3
-       if isOpened {
-           let attrContString = NSAttributedString(string: viewModel.dataSource[indexPath.row].contents, attributes: AlarmNoticeCell.contentAttribute)
-           let estContTextSize = attrContString.boundingRect(with: CGSize(width: cellWidth, height: CGFloat.infinity), options: [.usesLineFragmentOrigin, .usesFontLeading], context:nil).size
-           let contentViewHeight = estContTextSize.height + 8 * 2 + 1
-           return CGSize(width: cellWidth, height: titleViewHeight + contentViewHeight) // 초기 cell 사이즈
-       } else {
-           return CGSize(width: cellWidth, height: titleViewHeight) // 초기 cell 사이즈
-       }
     }
 }
