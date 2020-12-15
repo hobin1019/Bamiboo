@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol AlarmNoticeViewDelegate: class {
-    func collectionViewWillReload()
+    func collectionViewInvalidateLayout()
 }
 
 class AlarmNoticeViewModel {
@@ -21,7 +21,7 @@ class AlarmNoticeViewModel {
             for _ in 0..<newValue.count { isOpened.append(false) }
         }
         didSet {
-            delegate.collectionViewWillReload()
+            delegate.collectionViewInvalidateLayout()
         }
     }
     private(set) var isOpened: [Bool] = []
