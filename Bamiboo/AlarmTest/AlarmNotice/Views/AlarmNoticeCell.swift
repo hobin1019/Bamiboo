@@ -85,11 +85,6 @@ class AlarmNoticeCell: UICollectionViewCell {
         return label
     }()
     
-    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.apply(layoutAttributes)
-        layoutIfNeeded()
-    }
-    
     // MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,7 +96,7 @@ class AlarmNoticeCell: UICollectionViewCell {
     }
     private func commonInit() {
         self.layer.masksToBounds = true // 중요!!
-        self.backgroundColor = .red
+        self.backgroundColor = .black
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(stackView)

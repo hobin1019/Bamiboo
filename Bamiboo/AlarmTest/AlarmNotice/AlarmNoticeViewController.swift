@@ -51,20 +51,17 @@ class AlarmNoticeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("공지 - viewWillAppear")
-        viewModel.requestDataSource() // 탭 전환될 때마다 데이터 새로 가져오기
+        viewModel.requestDataSource() // 탭 전환될 때마다 데이터 새로 가져오기 (?)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("공지 - viewWillDisappear")
-        // 탭 전환 직전에 데이터 지우기
     }
 }
 
 extension AlarmNoticeViewController: AlarmNoticeViewDelegate {
     func collectionViewInvalidateLayout() {
-        contentCollectionView.collectionViewLayout.invalidateLayout()
+        contentCollectionView.performBatchUpdates(nil, completion: { _ in})
     }
 }
 
@@ -98,12 +95,7 @@ extension AlarmNoticeViewController: UICollectionViewDataSource {
 }
 
 extension AlarmNoticeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print("willDisplay : \(indexPath.row)")
-    }
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print("didEndDisplaying : \(indexPath.row)")
-    }
+    
 }
 
 extension AlarmNoticeViewController: UICollectionViewDelegateFlowLayout {
@@ -121,9 +113,21 @@ extension AlarmNoticeViewController: UICollectionViewDelegateFlowLayout {
                     return cell.frame.size // 클릭하지 않은 cell 은 size 유지
                 }
             }
-        } else { // cell 이 화면에서 사라지는 시점(= reusableQueue 에 enqueue 되는 시점) 에는 cell 변수 값이 nil 이다!!!!
+        } else {
+//            if let cells = cells {
+//                return CGSize(width: cellWidth, height: (isOpened ? cells[indexPath.row]?.openHeight : cells[indexPath.row]?.closeHeight) ?? 0) // 클릭한 cell resizing
+//            } else {
+//                return CGSize(width: cellWidth, height: 0)
+//            }
+            
+            
             /*
+             cell 이 화면에서 사라지는 시점(= reusableQueue 에 enqueue 되는 시점) 에는 cell 변수 값이 nil 이다!!!!
              결국에는 open / close 상태에 따른 예상 height 를 계산해서 높이를 유지해줘야하는데... 어차피 이렇게 계산할거면... stackView 왜쓴거집 ㅎㅅㅎ;;;
+             
+             
+             ==>> 그래서 최초로 cell 이 didEndDisplaying 되는 시점에 height 값을 Array에 저장해놓고 사용해보기 (이래도 되는건가??
+             
              */
             let attrTitleString = NSAttributedString(string: viewModel.dataSource[indexPath.row].title, attributes: AlarmNoticeCell.titleAttribute)
             let estTitleTextSize = attrTitleString.boundingRect(with: CGSize(width: cellWidth, height: CGFloat.infinity), options: [.usesLineFragmentOrigin, .usesFontLeading], context:nil).size
